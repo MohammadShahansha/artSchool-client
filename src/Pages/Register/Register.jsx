@@ -1,28 +1,11 @@
-import React, { useContext } from 'react';
-import logImg from '../../assets/Home/login.jpg'
+import React from 'react';
+import registerImg from '../../assets/Home/registration.jpg'
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../Provider/AuthProvider';
-import Swal from 'sweetalert2';
 
-const Login = () => {
-
-    const { signin } = useContext(AuthContext)
+const Register = () => {
 
 
-    const handelLogin = event => {
-        event.preventDefault()
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-
-        signin(email, password)
-            .then(result => {
-                const logedUser = result.user;
-                console.log(logedUser)
-                Swal.fire('Login successfull')
-
-            })
-
+    const handelRegister =()=> {
 
     }
     return (
@@ -31,11 +14,17 @@ const Login = () => {
 
                 <div className="hero-content grid md:grid-cols-2">
                     <div className="text-center lg:text-left">
-                        <img src={logImg} alt="" />
+                        <img src={registerImg} alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <h2 className='text-center text-3xl font-semibold mt-3'>Please Login</h2>
-                        <form onSubmit={handelLogin} className="card-body">
+                        <form onSubmit={handelRegister} className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" name='name' placeholder="Name" className="input input-bordered" />
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -47,18 +36,24 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                            </div>
+                            {/* <div className="form-control">
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <span className="label-text">Password</span>
                                 </label>
+                                <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                            </div> */}
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input type="text" name='photo' placeholder="Photo URL" className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Login" />
-                                <p className='text-center'><span>Don't have an Account?</span><Link to="/register" className='text-blue-500 underline'>Register</Link></p>
+                                <p className='text-center'><span>Already have an Account?</span><Link to="/login" className='text-blue-500 underline'>Login</Link></p>
                             </div>
                         </form>
-                        <div>
-                            <button className="btn btn-outline btn-primary">Primary</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -66,4 +61,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
