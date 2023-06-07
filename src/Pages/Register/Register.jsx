@@ -1,11 +1,16 @@
 import React from 'react';
 import registerImg from '../../assets/Home/registration.jpg'
 import { Link } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 
 const Register = () => {
 
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        console.log(data)
+    };
 
-    const handelRegister =()=> {
+    const handelRegister = () => {
 
     }
     return (
@@ -17,25 +22,32 @@ const Register = () => {
                         <img src={registerImg} alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <h2 className='text-center text-3xl font-semibold mt-3'>Please Login</h2>
-                        <form onSubmit={handelRegister} className="card-body">
+                        <h2 className='text-center text-3xl font-semibold mt-3'>Please Register</h2>
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="Name" className="input input-bordered" />
+                                <input type="text" {...register("name", { required: true })} name='name' placeholder="Name" className="input input-bordered" />
+                                {errors.name && <span className='text-red-500'>This field is required</span>}
                             </div>
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                                <input type="email" {...register("email", { required: true })} name='email' placeholder="email" className="input input-bordered" />
+                                {errors.email && <span className='text-red-500'>This field is required</span>}
                             </div>
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                                <input type="password" {...register("password", { required: true, minLength: 6, pattern: /(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}/ })} name='password' placeholder="password" className="input input-bordered" />
+                                {errors.password?.type ==='require' && <span className='text-red-500'>Passwored is required</span>}
+                                {errors.password?.type === 'minLength' && <span className='text-red-500'>passworde must be 6 cherecter</span>}
+                                {errors.password?.type === 'pattern' && <span className='text-red-500'>Must be at least one digit, one uppercase and lowerCase and one Special cherecter</span>}
                             </div>
                             {/* <div className="form-control">
                                 <label className="label">
@@ -47,10 +59,11 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>
-                                <input type="text" name='photo' placeholder="Photo URL" className="input input-bordered" />
+                                <input type="text" name='photo' {...register("photo")} placeholder="Photo URL" className="input input-bordered" />
                             </div>
+
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Login" />
+                                <input className="btn btn-primary" type="submit" value="Register" />
                                 <p className='text-center'><span>Already have an Account?</span><Link to="/login" className='text-blue-500 underline'>Login</Link></p>
                             </div>
                         </form>

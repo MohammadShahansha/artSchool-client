@@ -3,6 +3,8 @@ import logImg from '../../assets/Home/login.jpg'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { FaGoogle } from 'react-icons/fa';
+
 
 const Login = () => {
 
@@ -22,8 +24,10 @@ const Login = () => {
                 Swal.fire('Login successfull')
 
             })
+    }
 
-
+    const handelWithGoogle = () => {
+        
     }
     return (
         <div>
@@ -56,8 +60,8 @@ const Login = () => {
                                 <p className='text-center'><span>Don't have an Account?</span><Link to="/register" className='text-blue-500 underline'>Register</Link></p>
                             </div>
                         </form>
-                        <div>
-                            <button className="btn btn-outline btn-primary">Primary</button>
+                        <div className='text-center mb-4'>
+                            <button onClick={handelWithGoogle} className="btn btn-outline btn-primary text-center"> <FaGoogle></FaGoogle> Login With Google  </button>
                         </div>
                     </div>
                 </div>
