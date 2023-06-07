@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import logImg from '../../assets/Home/login.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FaGoogle } from 'react-icons/fa';
@@ -9,6 +9,9 @@ import { FaGoogle } from 'react-icons/fa';
 const Login = () => {
 
     const { signin } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
 
     const handelLogin = event => {
@@ -22,7 +25,7 @@ const Login = () => {
                 const logedUser = result.user;
                 console.log(logedUser)
                 Swal.fire('Login successfull')
-
+                navigate(from, {replace: true})
             })
     }
 
