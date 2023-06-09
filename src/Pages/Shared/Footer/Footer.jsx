@@ -5,7 +5,7 @@ const Footer = () => {
         <div className='my-20'>
             <footer className="flex justify-between p-10 bg-base-200 text-base-content">
                 <div className='flex flex-col'>
-                    <p>Drowing Home</p>
+                    <p>Arts & Craft School</p>
                 </div>
                 <div className='flex flex-col'>
                     <span className="footer-title">Services</span>

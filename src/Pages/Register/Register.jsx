@@ -3,18 +3,25 @@ import registerImg from '../../assets/Home/registration.jpg'
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const {createUser} = useContext(AuthContext)
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const {createUser, userProfile} = useContext(AuthContext)
 
     const onSubmit = data => {
         console.log(data)
         createUser(data.email, data.password)
         .then(result => {
             const userCreated = result.user;
-            console.log(userCreated)
+            console.log(userCreated);
+            userProfile(data.name, data.photoURL)
+            .then(()=>{
+                console.log('update user profile')
+            })
+            reset()
+            Swal.fire('Registration Successfull')
         })
     };
 
@@ -67,7 +74,8 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>
-                                <input type="text" name='photo' {...register("photo")} placeholder="Photo URL" className="input input-bordered" />
+                                <input type="text" name='photo' {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
+                                {errors.photoURL && <span className='text-red-500'>This field is required</span>}
                             </div>
 
                             <div className="form-control mt-6">

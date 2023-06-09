@@ -16,10 +16,13 @@ const Navbar = () => {
     const navItem = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/secret">Secret</Link></li>
+        <li><Link to="/classes">Classes</Link></li>
+        <li><Link to="/instructor">Instructor</Link></li>
 
         {
             user ? <>
                 <button onClick={handelLogOut} className="btn btn-ghost">Logout</button>
+                <img className='rounded-full w-10 h-10' src={user.photoURL} alt="" />
             </> : <>
                 <li><Link to="/login">Login</Link></li>
             </>

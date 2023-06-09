@@ -1,0 +1,51 @@
+[
+    {
+      "name": "Watercolor Painting",
+      "instructor": "John Smith",
+      "email": "johnsmith@example.com",
+      "classImage":"https://i.ibb.co/brG4rNT/water.jpg",
+      "instructorImage": "https://i.ibb.co/HDV31z4/front-view-smiley-man-blending-different-colors-his-painting.jpg",
+      "students": 15
+    },
+    {
+      "name": "Sculpture Workshop",
+      "instructor": "Sarah Johnson",
+      "email": "sarahjohnson@example.com",
+      "classImage": "https://i.ibb.co/BySmdkT/sclupture.jpg",
+      "instructorImage": "https://i.ibb.co/HFqWnwY/young-man-clay-sculpting-medium-shot.jpg",
+      "students": 12
+    },
+    {
+      "name": "Drawing Fundamentals",
+      "instructor": "Michael Thompson",
+      "email": "michaelthompson@example.com",
+      "classImage":  "https://i.ibb.co/TKqWcBB/drowing.jpg",
+      "instructorImage": "https://i.ibb.co/zPjWs5W/front-view-male-painter-trying-draw-easel-holding-paint-brushes-paints-white-wall.jpg",
+      "students": 20
+    },
+    {
+      "name": "Oil Painting Techniques",
+      "instructor": "Emily Davis",
+      "email": "emilydavis@example.com",
+      "classImage": "https://i.ibb.co/Vv0dfr1/oil.jpg",
+      "instructorImage": "https://i.ibb.co/FWtw5s9/mid-shot-teacher-student.jpg",
+      "students": 18
+    },
+    {
+      "name": "Street Art",
+      "instructor": "David Rodriguez",
+      "email": "davidrodriguez@example.com",
+      "classImage": "https://i.ibb.co/FJftHHW/street.jpg",
+      "instructorImage": "https://i.ibb.co/FWtw5s9/mid-shot-teacher-student.jpg",
+      "students": 25
+    },
+    {
+      "name": "Calligraphy Art",
+      "instructor": "Alexandra Brown",
+      "email": "alexandrabrown@example.com",
+      "classImage":"https://i.ibb.co/QcCBsyP/caliographi.jpg",
+      "instructorImage": "https://i.ibb.co/FWtw5s9/mid-shot-teacher-student.jpg",
+      "students": 10
+    }
+  ]
+  

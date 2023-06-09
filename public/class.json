@@ -1,0 +1,57 @@
+ [
+      {
+        "image": "https://i.ibb.co/brG4rNT/water.jpg",
+        "name": "Watercolor Painting",
+        "students": 15,
+        "instructor": "John Smith",
+        "email": "johnsmith@example.com",
+        "seatsAvailable": 5,
+        "price": 50
+      },
+      {
+        "image": "https://i.ibb.co/BySmdkT/sclupture.jpg",
+        "name": "Sculpture Workshop",
+        "students": 10,
+        "instructor": "Emily Johnson",
+        "email": "emilyjohnson@example.com",
+        "seatsAvailable": 2,
+        "price": 75
+      },
+      {
+        "image": "https://i.ibb.co/TKqWcBB/drowing.jpg",
+        "name": "Drawing Fundamentals",
+        "students": 12,
+        "instructor": "Sarah Thompson",
+        "email": "sarahthompson@example.com",
+        "seatsAvailable": 8,
+        "price": 60
+      },
+      {
+        "image": "https://i.ibb.co/Vv0dfr1/oil.jpg",
+        "name": "Oil Painting Techniques",
+        "students": 20,
+        "instructor": "Michael Davis",
+        "email": "michaeldavis@example.com",
+        "seatsAvailable": 3,
+        "price": 80
+      },
+      {
+        "image": "https://i.ibb.co/FJftHHW/street.jpg",
+        "name": "Street Art",
+        "students": 10,
+        "instructor": "Alex Rodriguez",
+        "email": "alexrodriguez@example.com",
+        "seatsAvailable": 5,
+        "price": 70
+      },
+      {
+        "image": "https://i.ibb.co/QcCBsyP/caliographi.jpg",
+        "name": "Calligraphy Art",
+        "students": 15,
+        "instructor": "Sophia Lee",
+        "email": "sophialee@example.com",
+        "seatsAvailable": 10,
+        "price": 65
+      }
+]
+  
