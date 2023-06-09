@@ -3,8 +3,11 @@ import { FaHome, FaSchool, FaShoppingCart, FaWallet } from 'react-icons/fa';
 import { GiConfirmed } from "react-icons/gi";
 import {  FcManager } from "react-icons/fc";
 import { NavLink, Outlet } from 'react-router-dom';
+import useClass from '../Hooks/useClass';
 
 const Dashboard = () => {
+    const [selectedClass] = useClass()
+
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -23,7 +26,12 @@ const Dashboard = () => {
                         <h2 className='text-2xl font-semibold'>Arts & Craft School</h2>
                         <li><NavLink to="enrolled"><GiConfirmed></GiConfirmed> My Enrolled class</NavLink></li>
                         <li><NavLink to="/payment"><FaWallet></FaWallet> Payment</NavLink></li>
-                        <li><NavLink to="/dashboard/myclass"><FaShoppingCart></FaShoppingCart> My Selected Class</NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard/myclass"><FaShoppingCart></FaShoppingCart> My Selected Class
+                            <span className="badge badge-secondary">+{selectedClass?.length || 0}</span>
+                            </NavLink>
+                            
+                            </li>
                         <div className="divider"></div>
                         <li><NavLink to="/"><FaHome></FaHome> Home</NavLink></li>
                         <li><NavLink to="/classes"><FaSchool></FaSchool> Classes</NavLink></li>

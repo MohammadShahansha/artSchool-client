@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FaGoogle } from 'react-icons/fa';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 
 const Login = () => {
@@ -29,9 +30,7 @@ const Login = () => {
             })
     }
 
-    const handelWithGoogle = () => {
-        
-    }
+    
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -62,10 +61,9 @@ const Login = () => {
                                 <input className="btn btn-primary" type="submit" value="Login" />
                                 <p className='text-center'><span>Don't have an Account?</span><Link to="/register" className='text-blue-500 underline'>Register</Link></p>
                             </div>
+                            <SocialLogin></SocialLogin>
                         </form>
-                        <div className='text-center mb-4'>
-                            <button onClick={handelWithGoogle} className="btn btn-outline btn-primary text-center"> <FaGoogle></FaGoogle> Login With Google  </button>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
