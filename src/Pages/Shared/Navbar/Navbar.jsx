@@ -18,7 +18,7 @@ const Navbar = () => {
         <li><Link to="/secret">Secret</Link></li>
         <li><Link to="/classes">Classes</Link></li>
         <li><Link to="/instructor">Instructor</Link></li>
-
+        <li><Link to="/dashboard/myclass">Dashboard</Link></li>
         {
             user ? <>
                 <button onClick={handelLogOut} className="btn btn-ghost">Logout</button>
@@ -30,8 +30,8 @@ const Navbar = () => {
 
     </>
     return (
-        <div>
-            <div className="navbar bg-base-100">
+        <div className=' sticky top-0 z-10'>
+            <div className="navbar sticky top-0 z-10 bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
