@@ -6,16 +6,16 @@ const useClass = () => {
     const {user} = useContext(AuthContext)
 
 
-    const { refetch, data: classes = [] } = useQuery({
-        queryKey: ['classes'],
+    const { refetch, data: selectedClass = [] } = useQuery({
+        queryKey: ['selectedClass', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/classes`)
+            const res = await fetch(`http://localhost:5000/selectedclass?email=${user?.email}`)
             return res.json();
         },
       })
 
 
-    return [classes, refetch]
+    return [selectedClass, refetch]
 };
 
 export default useClass;

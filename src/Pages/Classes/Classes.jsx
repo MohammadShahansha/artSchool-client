@@ -24,7 +24,7 @@ const Classes = () => {
         const {email, image, instructor, name, price, seatsAvailable, students, _id} = classe
         if(user && user.email){
             // console.log(classe)
-            const selectedItem = {selectedItemId: _id, email, image, instructor, name, price, seatsAvailable, students, userEmail: user.email}
+            const selectedItem = {selectedItemId: _id, image, instructor, name, price, seatsAvailable, students, email: user.email}
             fetch('http://localhost:5000/selectedclass', {
                 method: 'POST',
                 headers: {
