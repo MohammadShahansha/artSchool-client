@@ -15,7 +15,7 @@ const Dashboard = () => {
     // const isInstructor = false;
     const [isAdmin] = useAdmin()
     const [isInstructor] = useInstructor()
-    console.log(isInstructor)
+    // console.log(isInstructor)
 
     return (
         <div>
@@ -45,7 +45,7 @@ const Dashboard = () => {
                                     isInstructor ? <>
                                         <li><NavLink to="enrolled"><FaHome></FaHome> Instructor Home</NavLink></li>
                                         <li><NavLink to="/dashboard/addclass"><FaUtensils></FaUtensils> Add a Class</NavLink></li>
-                                        <li><NavLink to="/payment"><FaUtensils></FaUtensils> My Class</NavLink></li>
+                                        <li><NavLink to="/dashboard/addedinstructor"><FaUtensils></FaUtensils> My Class</NavLink></li>
 
                                     </> : <>
                                         <li><NavLink to="enrolled"><GiConfirmed></GiConfirmed> My Enrolled class</NavLink></li>
