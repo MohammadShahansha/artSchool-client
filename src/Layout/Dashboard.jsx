@@ -5,14 +5,17 @@ import { FcManager } from "react-icons/fc";
 import { NavLink, Outlet } from 'react-router-dom';
 import useClass from '../Hooks/useClass';
 import useAdmin from '../Hooks/useAdmin';
+import useInstructor from '../Hooks/useInstructor';
 
 const Dashboard = () => {
     const [selectedClass] = useClass()
 
     //TODO-------------------------------------------------------- 
     // const isAdmin = true;
-    const isInstructor = false;
+    // const isInstructor = false;
     const [isAdmin] = useAdmin()
+    const [isInstructor] = useInstructor()
+    console.log(isInstructor)
 
     return (
         <div>
@@ -40,7 +43,7 @@ const Dashboard = () => {
                             </> : <>
                                 {
                                     isInstructor ? <>
-                                        <li><NavLink to="enrolled"><GiConfirmed></GiConfirmed> Instructor Home</NavLink></li>
+                                        <li><NavLink to="enrolled"><FaHome></FaHome> Instructor Home</NavLink></li>
                                         <li><NavLink to="/payment"><FaUtensils></FaUtensils> Add a Class</NavLink></li>
 
                                     </> : <>
