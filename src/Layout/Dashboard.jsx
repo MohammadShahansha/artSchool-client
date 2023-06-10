@@ -44,7 +44,8 @@ const Dashboard = () => {
                                 {
                                     isInstructor ? <>
                                         <li><NavLink to="enrolled"><FaHome></FaHome> Instructor Home</NavLink></li>
-                                        <li><NavLink to="/payment"><FaUtensils></FaUtensils> Add a Class</NavLink></li>
+                                        <li><NavLink to="/dashboard/addclass"><FaUtensils></FaUtensils> Add a Class</NavLink></li>
+                                        <li><NavLink to="/payment"><FaUtensils></FaUtensils> My Class</NavLink></li>
 
                                     </> : <>
                                         <li><NavLink to="enrolled"><GiConfirmed></GiConfirmed> My Enrolled class</NavLink></li>
