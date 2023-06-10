@@ -4,6 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const useClass = () => {
     const {user} = useContext(AuthContext)
+    // const token = localStorage.getItem('access-token')
 
 
     const { refetch, data: selectedClass = [] } = useQuery({

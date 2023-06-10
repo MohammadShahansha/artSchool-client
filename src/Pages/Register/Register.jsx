@@ -10,7 +10,7 @@ const Register = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, userProfile } = useContext(AuthContext)
-    console.log(userProfile)
+    
     const navigate = useNavigate();
 
     const onSubmit = data => {

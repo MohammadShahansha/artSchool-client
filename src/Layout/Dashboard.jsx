@@ -4,13 +4,15 @@ import { GiConfirmed } from "react-icons/gi";
 import { FcManager } from "react-icons/fc";
 import { NavLink, Outlet } from 'react-router-dom';
 import useClass from '../Hooks/useClass';
+import useAdmin from '../Hooks/useAdmin';
 
 const Dashboard = () => {
     const [selectedClass] = useClass()
 
     //TODO-------------------------------------------------------- 
-    const isAdmin = true;
+    // const isAdmin = true;
     const isInstructor = false;
+    const [isAdmin] = useAdmin()
 
     return (
         <div>
