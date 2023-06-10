@@ -1,7 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 const ManageUsers = () => {
+    const [disabled, setDisabled] = useState(false)
+    const [disable, setDisable] = useState(false)
     const { data: users = [], refetch } = useQuery(['users'], async () => {
         const res = await fetch('http://localhost:5000/users')
         return res.json();
@@ -15,10 +17,33 @@ const ManageUsers = () => {
         .then(data => {
             if(data.modifiedCount){
                 refetch();
+                setDisabled(true)
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
                     title: `${user.name} is an admin now!!`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+
+            }
+        })
+    }
+    const handelMakeInstructor = user => {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+            method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount){
+                setDisable(true)
+                refetch();
+                console.log(data)
+                
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `${user.name} is an instructor now!!`,
                     showConfirmButton: false,
                     timer: 1500
                   })
@@ -59,10 +84,10 @@ const ManageUsers = () => {
                                     }
                                 </td>
                                 <td>
-                                    <button className='btn btn-primary btn-sm text-white'>Make Instructor</button>
+                                    <button disabled={disable} onClick={()=> handelMakeInstructor(user)} className='btn btn-primary btn-sm text-white'>Make Instructor</button>
                                 </td>
                                 <td>
-                                <button onClick={()=> handelMakeAdmin(user)} className='btn btn-primary btn-sm text-white'>Make Admin</button>
+                                <button disabled={disabled} onClick={()=> handelMakeAdmin(user)} className='btn btn-primary btn-sm text-white'>Make Admin</button>
                                 </td>
                             </tr>)
                         }
