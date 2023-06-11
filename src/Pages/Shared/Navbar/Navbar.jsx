@@ -15,7 +15,6 @@ const Navbar = () => {
 
     const navItem = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/secret">Secret</Link></li>
         <li><Link to="/classes">Classes</Link></li>
         <li><Link to="/instructor">Instructor</Link></li>
         <li><Link to="/dashboard/myclass">Dashboard</Link></li>

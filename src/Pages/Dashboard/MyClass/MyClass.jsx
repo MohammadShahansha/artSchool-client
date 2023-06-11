@@ -1,6 +1,7 @@
 import React from 'react';
 import useClass from '../../../Hooks/useClass';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MyClass = () => {
     const [selectedClass, refetch] = useClass();
@@ -43,7 +44,8 @@ const MyClass = () => {
             <div className='flex justify-evenly w-full text-2xl font-semibold mb-5'>
                 <h2>Total Class: {selectedClass.length}</h2>
                 <h2>Total Price: {totalPrice}</h2>
-                <button className="btn btn-primary btn-sm">Pay</button>
+                <button className="btn btn-primary btn-sm"><Link to='/dashboard/payment'>Pay</Link></button>
+              
             </div>
             <div>
                 <div className="overflow-x-auto w-full">

@@ -2,12 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 const ManageUsers = () => {
-    const [disabled, setDisabled] = useState(false)
-    const [disable, setDisable] = useState(false)
+    // const [disabled, setDisabled] = useState(false)
+    // const [disable, setDisable] = useState(false)
     const { data: users = [], refetch } = useQuery(['users'], async () => {
         const res = await fetch('http://localhost:5000/users')
         return res.json();
     })
+    console.log(users)
 
     const handelMakeAdmin = user => {
         fetch(`http://localhost:5000/users/admin/${user._id}`,{
@@ -17,7 +18,7 @@ const ManageUsers = () => {
         .then(data => {
             if(data.modifiedCount){
                 refetch();
-                setDisabled(true)
+                // setDisabled(true)
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -30,26 +31,37 @@ const ManageUsers = () => {
         })
     }
     const handelMakeInstructor = user => {
+        const {image, email, name} = user;
         fetch(`http://localhost:5000/users/instructor/${user._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
         .then(data => {
             if(data.modifiedCount){
-                setDisable(true)
+                // setDisable(true)
                 refetch();
                 console.log(data)
                 
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: `${user.name} is an instructor now!!`,
+                    title: `${user.name} is an instructor now and added in instructor page!!`,
                     showConfirmButton: false,
                     timer: 1500
                   })
 
             }
         })
+        const savedItem = {instructorImage: image, email, instructor: name, students: 0}
+        fetch('http://localhost:5000/instructor', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(savedItem)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
     }
 
     return (
@@ -84,10 +96,10 @@ const ManageUsers = () => {
                                     }
                                 </td>
                                 <td>
-                                    <button disabled={disable} onClick={()=> handelMakeInstructor(user)} className='btn btn-primary btn-sm text-white'>Make Instructor</button>
+                                    <button disabled={user.role==='instructor'} onClick={()=> handelMakeInstructor(user)} className='btn btn-primary btn-sm text-white'>Make Instructor</button>
                                 </td>
                                 <td>
-                                <button disabled={disabled} onClick={()=> handelMakeAdmin(user)} className='btn btn-primary btn-sm text-white'>Make Admin</button>
+                                <button disabled={user.role === 'admin'} onClick={()=> handelMakeAdmin(user)} className='btn btn-primary btn-sm text-white'>Make Admin</button>
                                 </td>
                             </tr>)
                         }

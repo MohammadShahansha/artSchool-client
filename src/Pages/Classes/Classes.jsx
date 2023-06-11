@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const Classes = () => {
     const {user} = useContext(AuthContext);
+    // console.log(user.role)
     const [classes, setClasses] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Classes = () => {
                 setLoading(false)
             })
     }, [])
+
     // console.log(classes)
     const handelSelectedItem = classe => {
         const {email, image, instructor, name, price, seatsAvailable, students, _id} = classe
@@ -56,9 +58,9 @@ const Classes = () => {
                             <h2 className="card-title">{classe.name}</h2>
                             <p>Instructo: {classe.instructor}</p>
                             <p>Available seats: {classe.seatsAvailable}</p>
-                            <p>Price: {classe.price}</p>
+                            <p>Price: ${classe.price}</p>
                             <div className="flex justify-end">
-                                <button onClick={() => handelSelectedItem(classe)} className="btn btn-primary">Select</button>
+                                <button disabled={ user.role==='instructor' || user.role === 'admin'} onClick={() => handelSelectedItem(classe)} className="btn btn-primary">Select</button>
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 const Manageclass = () => {
     const [managclass, setManageclass] = useState([]);
     const [loading, setLoading] = useState(true)
+    const [disabled, setDisabled] = useState(false)
     const {user} = useContext(AuthContext)
 
     useEffect(() => {
@@ -20,7 +21,7 @@ const Manageclass = () => {
         const {email, image, instructorName, name, price, seats} = item;
         if(user && user.email){
             // console.log(classe)
-            const savedItem = {image, instructorName, name, price, seats, email, students: 0}
+            const savedItem = {image, instructor:instructorName, name, price, seatsAvailable:seats, email, students: 0, status: 'approved'}
             fetch('http://localhost:5000/classes', {
                 method: 'POST',
                 headers: {
@@ -31,10 +32,14 @@ const Manageclass = () => {
             .then(res => res.json())
             .then(data => {
                 if(data.insertedId){
+                    setDisabled(true);
                     Swal.fire('Successfully Added in Classes Page')
                 }
             })
         }
+    }
+    const handelDenyClass = item => {
+
     }
     return (
         <div>
@@ -52,8 +57,8 @@ const Manageclass = () => {
                                 <p>Price:${item.price}</p>
                                 <p>Status:{item.status}</p>
                                 <div className='flex justify-center gap-3'>
-                                    <button onClick={()=> handelAprovedClass(item)}  className='btn btn-primary btn-sm'>Approved</button>
-                                    <button className='btn btn-primary btn-sm'>Deny</button>
+                                    <button onClick={()=> handelAprovedClass(item)} disabled={disabled}  className='btn btn-primary btn-sm'>Approved</button>
+                                    <button onClick={()=> handelDenyClass(item)} className='btn btn-primary btn-sm'>Deny</button>
                                     <button className='btn btn-primary btn-sm'>Feedback</button>
                                 </div>
                                 

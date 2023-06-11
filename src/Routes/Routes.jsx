@@ -6,7 +6,6 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-import Secret from "../Secret/Secret";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Classes from "../Pages/Classes/Classes";
 import Instructor from "../Pages/Instructor/Instructor";
@@ -17,6 +16,7 @@ import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import AddedByInstructor from "../Pages/Dashboard/AddedByInstructor/AddedByInstructor";
 import Manageclass from "../Pages/Dashboard/Manageclass/Manageclass";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
   export const router = createBrowserRouter([
     {
@@ -35,10 +35,6 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
         {
           path:"/register",
           element: <Register></Register>
-        },
-        {
-          path: '/secret',
-          element: <PrivateRoute><Secret></Secret></PrivateRoute>
         },
         {
           path: '/classes',
@@ -74,6 +70,10 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
         {
           path: 'manageclass',
           element: <Manageclass></Manageclass>
+        },
+        {
+          path: 'payment',
+          element: <Payment></Payment>
         }
       ]
     }
