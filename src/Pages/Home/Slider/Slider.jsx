@@ -23,7 +23,7 @@ const Slider = () => {
         >
             <SwiperSlide className='relative'>
 
-                <p className='text-left mx-4 absolute top-5'><span className='font-semibold'>Painting:</span> The art of painting is a visual medium that involves the application of pigment, color, and other materials on a surface to create images, forms, and expressions. It is one of the oldest and most widely practiced forms of artistic expression, dating back thousands of years.<br /> <span className='font-semibold'>Here are some key aspects of the art of painting:</span> Mediums and Materials, Techniques, Styles and Movements, Historical Significance etc </p>
+                <p className='text-left mx-4  absolute md:top-5'><span className='font-semibold'>Painting:</span> The art of painting is a visual medium that involves the application of pigment, color, and other materials on a surface to create images, forms, and expressions. It is one of the oldest and most widely practiced forms of artistic expression, dating back thousands of years.<br /> <span className='font-semibold'>Here are some key aspects of the art of painting:</span> Mediums and Materials, Techniques, Styles and Movements, Historical Significance etc </p>
 
                 <img src={slider1} alt="" />
             </SwiperSlide>

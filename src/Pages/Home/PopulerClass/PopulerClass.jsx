@@ -14,11 +14,11 @@ const PopulerClass = () => {
     },[])
     // console.log(populerclass)
     return (
-        <div>
+        <div className='mb-20'>
             <h2 className='text-5xl text-center font-semibold my-5'>Populer Classes</h2>
             <div className='grid grid-cols-3 gap-3'>
             {
-                populerclass.map(classe => <div
+                populerclass.slice(0, 6).map(classe => <div
                     key={classe._id}
                 >
                     <div className="card card-compact w-96 bg-base-100 shadow-xl">
