@@ -15,11 +15,14 @@ import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 import ManageUsers from "../Pages/Dashboard/MangeUsers/ManageUsers";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import AddedByInstructor from "../Pages/Dashboard/AddedByInstructor/AddedByInstructor";
+import Manageclass from "../Pages/Dashboard/Manageclass/Manageclass";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
   export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:"/",
@@ -67,6 +70,10 @@ import AddedByInstructor from "../Pages/Dashboard/AddedByInstructor/AddedByInstr
         {
           path: 'addedinstructor',
           element:<AddedByInstructor></AddedByInstructor>
+        },
+        {
+          path: 'manageclass',
+          element: <Manageclass></Manageclass>
         }
       ]
     }

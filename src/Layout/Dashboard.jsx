@@ -2,10 +2,12 @@ import React from 'react';
 import { FaHome, FaSchool, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
 import { GiConfirmed } from "react-icons/gi";
 import { FcManager } from "react-icons/fc";
+import { MdClass } from "react-icons/md";
 import { NavLink, Outlet } from 'react-router-dom';
 import useClass from '../Hooks/useClass';
 import useAdmin from '../Hooks/useAdmin';
 import useInstructor from '../Hooks/useInstructor';
+
 
 const Dashboard = () => {
     const [selectedClass] = useClass()
@@ -37,7 +39,7 @@ const Dashboard = () => {
                         {
                             isAdmin ? <>
                                 <li><NavLink to="enrolled"><FaHome></FaHome> Admin Home</NavLink></li>
-                                <li><NavLink to="/payment"><FaWallet></FaWallet>Manage Classes</NavLink></li>
+                                <li><NavLink to="/dashboard/manageclass"><MdClass></MdClass> Manage Classes</NavLink></li>
                                 <li><NavLink to="/dashboard/manageusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
 
                             </> : <>
