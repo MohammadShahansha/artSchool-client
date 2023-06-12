@@ -1,28 +1,16 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
+// import './CheckoutForm.css';
 
 const CheckoutForm = ({ price }) => {
     const { user } = useContext(AuthContext)
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('')
-    // const [clientSecret, setClientSecret] = useState('')
-
-    // useEffect(() => {
-    //     if (price > 0) {
-    //         fetch('http://localhost:5000/create-payment-intent', {
-    //             method: "POST",
-    //             headers: {
-    //                 'content-type': 'application/json'
-    //             },
-    //             body: price
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => setClientSecret(data.clientSecret))
-    //     }
-    // }, [])
-
+   
+    const [transectionId, setTransectionId] = useState('')
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -48,6 +36,8 @@ const CheckoutForm = ({ price }) => {
             setCardError('')
         }
 
+        
+
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
            localStorage.getItem("client"),
             {
@@ -64,7 +54,11 @@ const CheckoutForm = ({ price }) => {
             console.log(confirmError)
         }
         console.log( 'payment intent', paymentIntent)
-        // if(paymentIntent?.status==="succeeded")
+        
+        if(paymentIntent.status === "succeeded"){
+            const transactionId = paymentIntent.id;
+            setTransectionId(transactionId)
+        }
 
 
     }
@@ -98,6 +92,7 @@ const CheckoutForm = ({ price }) => {
             {
                 cardError && <p className='text-red-500'>{cardError}</p>
             }
+            {transectionId && <p className='text-green-500'>Transection is completed</p>}
 
         </>
     );

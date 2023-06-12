@@ -7,13 +7,11 @@ import useClass from '../../../Hooks/useClass';
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_PK);
 const Payment = () => {
     const [selectedClass] = useClass();
-    // const totalPrice = selectedClass.reduce((sum, seClass) => sum + seClass.price, 0);
-    // const price = parseFloat(totalPrice.toFixed(2))
     const price =localStorage.getItem('price');
 
     return (
         <div>
-            <h2>taka mor cinimini kore-----------------------</h2>
+            <h2 className='text-3xl text-center font-semibold mb-5'>PAYMENT using Stripe</h2>
             <Elements stripe={stripePromise}>
                 <CheckoutForm price = {price}></CheckoutForm>
             </Elements>

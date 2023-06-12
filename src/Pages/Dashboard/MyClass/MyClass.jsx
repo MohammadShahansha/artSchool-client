@@ -15,8 +15,7 @@ const MyClass = () => {
         localStorage.setItem('price',price);
        const data=await axios.post('http://localhost:5000/create-payment-intent',{price:price});
        localStorage.setItem('client',data.data.clientSecret)
-    //    localStorage.setItem("classId",item._id);
-        // console.log(data)
+   
     }
 
     const handelDelete = item => {
@@ -55,7 +54,6 @@ const MyClass = () => {
             <div className='flex justify-evenly w-full text-2xl font-semibold mb-5'>
                 <h2>Total Class: {selectedClass.length}</h2>
                 <h2>Total Price: {totalPrice}</h2>
-                <button className="btn btn-primary btn-sm"><Link to='/dashboard/payment'>Pay</Link></button>
               
             </div>
             <div>
