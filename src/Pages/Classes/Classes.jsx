@@ -13,7 +13,7 @@ const Classes = () => {
     const location = useLocation();
 
     useEffect(() => {
-        fetch('http://localhost:5000/allclasses')
+        fetch('https://assignment-twelve-server-zeta.vercel.app/allclasses')
             .then(res => res.json())
             .then(data => {
                 setClasses(data);
@@ -27,7 +27,7 @@ const Classes = () => {
         if(user && user.email){
             // console.log(classe)
             const selectedItem = {selectedItemId: _id, image, instructor, name, price, seatsAvailable, students, email: user.email}
-            fetch('http://localhost:5000/selectedclass', {
+            fetch('https://assignment-twelve-server-zeta.vercel.app/selectedclass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

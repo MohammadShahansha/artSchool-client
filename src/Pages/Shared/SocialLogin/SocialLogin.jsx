@@ -15,7 +15,7 @@ const SocialLogin = () => {
                 const logByGoogle = result.user;
                 console.log(logByGoogle)
                 const savedUser = { name: logByGoogle.displayName, email: logByGoogle.email }
-                fetch('http://localhost:5000/users', {
+                fetch('https://assignment-twelve-server-zeta.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

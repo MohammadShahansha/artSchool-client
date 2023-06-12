@@ -8,7 +8,7 @@ const useInstructor = () => {
     const {data: isInstructor, isLoading: isInstructorLoading} = useQuery({
         queryKey:['isInstructor', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users/instructor/${user?.email}`)
+            const res = await fetch(`https://assignment-twelve-server-zeta.vercel.app/users/instructor/${user?.email}`)
             // return res.data.admin;
             const data = await res.json();
             console.log(data)

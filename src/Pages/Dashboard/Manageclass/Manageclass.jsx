@@ -12,7 +12,7 @@ const Manageclass = () => {
     const [, refetch] = useClass()
 
     useEffect(() => {
-        fetch('http://localhost:5000/addedclass')
+        fetch('https://assignment-twelve-server-zeta.vercel.app/addedclass')
             .then(res => res.json())
             .then(data => {
                 setManageclass(data);
@@ -24,7 +24,7 @@ const Manageclass = () => {
         const { email, image, instructorName, name, price, seats } = item;
         if (user && user.email) {
             // console.log(classe)
-            fetch(`http://localhost:5000/added/approve/${item._id}`, {
+            fetch(`https://assignment-twelve-server-zeta.vercel.app/added/approve/${item._id}`, {
                 method: "PATCH",
             })
                 .then(res => res.json())
@@ -34,7 +34,7 @@ const Manageclass = () => {
                     }
                 })
             const savedItem = { image, instructor: instructorName, name, price, seatsAvailable: seats, email, students: 0, status: 'approved' }
-            fetch('http://localhost:5000/classes', {
+            fetch('https://assignment-twelve-server-zeta.vercel.app/classes', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -54,7 +54,7 @@ const Manageclass = () => {
     const handelDenyClass = item => {
         if (user && user.email){
 
-            fetch(`http://localhost:5000/added/deny/${item._id}`, {
+            fetch(`https://assignment-twelve-server-zeta.vercel.app/added/deny/${item._id}`, {
                 method: "PATCH",
             })
                 .then(res => res.json())

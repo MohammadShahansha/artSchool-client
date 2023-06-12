@@ -6,7 +6,7 @@ const AddedByInstructor = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('http://localhost:5000/addedclass')
+        fetch('https://assignment-twelve-server-zeta.vercel.app/addedclass')
             .then(res => res.json())
             .then(data => {
                 setGetClass(data);

@@ -13,7 +13,7 @@ const AddClass = () => {
         if (user && user.email) {
             // console.log(classe)
             const savedClass = { email, image, instructorName, name, price, seats, status}
-            fetch('http://localhost:5000/addedclass', {
+            fetch('https://assignment-twelve-server-zeta.vercel.app/addedclass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

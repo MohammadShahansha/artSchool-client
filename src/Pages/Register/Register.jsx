@@ -22,7 +22,7 @@ const Register = () => {
                 userProfile(data.name, data.photoURL)
                     .then(() => {
                         const savedUser = {name: data.name, email: data.email, image: data.photoURL}
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://assignment-twelve-server-zeta.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

@@ -13,7 +13,7 @@ const MyClass = () => {
 
     const handlePrice=async(price)=>{
         localStorage.setItem('price',price);
-       const data=await axios.post('http://localhost:5000/create-payment-intent',{price:price});
+       const data=await axios.post('https://assignment-twelve-server-zeta.vercel.app/create-payment-intent',{price:price});
        localStorage.setItem('client',data.data.clientSecret)
    
     }
@@ -29,7 +29,7 @@ const MyClass = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/selectedclass/${item._id}`,{
+                fetch(`https://assignment-twelve-server-zeta.vercel.app/selectedclass/${item._id}`,{
                     method: 'DELETE'
                 })
                 .then(res => res.json())

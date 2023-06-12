@@ -6,13 +6,13 @@ const ManageUsers = () => {
     // const [disabled, setDisabled] = useState(false)
     // const [disable, setDisable] = useState(false)
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/users')
+        const res = await fetch('https://assignment-twelve-server-zeta.vercel.app/users')
         return res.json();
     })
     console.log(users)
 
     const handelMakeAdmin = user => {
-        fetch(`http://localhost:5000/users/admin/${user._id}`,{
+        fetch(`https://assignment-twelve-server-zeta.vercel.app/users/admin/${user._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -33,7 +33,7 @@ const ManageUsers = () => {
     }
     const handelMakeInstructor = user => {
         const {image, email, name} = user;
-        fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+        fetch(`https://assignment-twelve-server-zeta.vercel.app/users/instructor/${user._id}`,{
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -54,7 +54,7 @@ const ManageUsers = () => {
             }
         })
         const savedItem = {instructorImage: image, email, instructor: name, students: 0}
-        fetch('http://localhost:5000/instructor', {
+        fetch('https://assignment-twelve-server-zeta.vercel.app/instructor', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

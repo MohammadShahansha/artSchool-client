@@ -5,7 +5,7 @@ const PopulerClass = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://assignment-twelve-server-zeta.vercel.app/classes')
         .then(res => res.json())
         .then(data => {
             setPopulerClass(data);
