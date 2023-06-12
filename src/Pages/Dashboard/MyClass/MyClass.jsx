@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useClass from '../../../Hooks/useClass';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { Zoom } from 'react-awesome-reveal';
+import axios from 'axios';
 
 const MyClass = () => {
     const [selectedClass, refetch] = useClass();
     console.log(selectedClass)
-    const totalPrice = selectedClass.reduce((sum, eachItem) => eachItem.price + sum, 0)
+    const totalPrice = selectedClass.reduce((sum, eachItem) => eachItem.price + sum, 0);
+    const [clientSecret, setClientSecret] = useState('')
+
+    const handlePrice=async(price)=>{
+        localStorage.setItem('price',price);
+       const data=await axios.post('http://localhost:5000/create-payment-intent',{price:price});
+       localStorage.setItem('client',data.data.clientSecret)
+    //    localStorage.setItem("classId",item._id);
+        // console.log(data)
+    }
 
     const handelDelete = item => {
         Swal.fire({
@@ -59,6 +69,7 @@ const MyClass = () => {
                                 <th>name</th>
                                 <th>Price</th>
                                 <th>Action</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -79,9 +90,12 @@ const MyClass = () => {
                                     </td>
                                      <td>{item.name}</td>
                                      <td>${item.price}</td>
-                                    <th>
+                                    <td>
                                         <button onClick={()=> handelDelete(item)} className="btn bg-red-600 btn-sm text-white">Delete</button>
-                                    </th>
+                                    </td>
+                                    <td>
+                                    <button onClick={()=>handlePrice(item.price)} className="btn btn-primary btn-sm"><Link to='/dashboard/payment'>Pay</Link></button>
+                                    </td>
                                 </tr>)
                             }
 

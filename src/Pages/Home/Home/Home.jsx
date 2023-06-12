@@ -6,7 +6,7 @@ import ExtraSection from '../ExtraSection/ExtraSection';
 
 const Home = () => {
     return (
-        <div>
+        <div className='dark:bg-gray-900'>
             <Slider></Slider>
             <PopulerClass></PopulerClass>
             <PopulerInstructor></PopulerInstructor>

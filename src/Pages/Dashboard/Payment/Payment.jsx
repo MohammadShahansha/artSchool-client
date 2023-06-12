@@ -7,8 +7,10 @@ import useClass from '../../../Hooks/useClass';
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_PK);
 const Payment = () => {
     const [selectedClass] = useClass();
-    const totalPrice = selectedClass.reduce((sum, seClass) => sum + seClass.price, 0);
-    const price = parseFloat(totalPrice.toFixed(2))
+    // const totalPrice = selectedClass.reduce((sum, seClass) => sum + seClass.price, 0);
+    // const price = parseFloat(totalPrice.toFixed(2))
+    const price =localStorage.getItem('price');
+
     return (
         <div>
             <h2>taka mor cinimini kore-----------------------</h2>

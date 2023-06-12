@@ -7,21 +7,21 @@ const CheckoutForm = ({ price }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('')
-    const [clientSecret, setClientSecret] = useState('')
+    // const [clientSecret, setClientSecret] = useState('')
 
-    useEffect(() => {
-        if (price > 0) {
-            fetch('http://localhost:5000/create-payment-intent', {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(price)
-            })
-                .then(res => res.json())
-                .then(data => setClientSecret(data.clientSecret))
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (price > 0) {
+    //         fetch('http://localhost:5000/create-payment-intent', {
+    //             method: "POST",
+    //             headers: {
+    //                 'content-type': 'application/json'
+    //             },
+    //             body: price
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => setClientSecret(data.clientSecret))
+    //     }
+    // }, [])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -49,13 +49,13 @@ const CheckoutForm = ({ price }) => {
         }
 
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
-            clientSecret,
+           localStorage.getItem("client"),
             {
                 payment_method: {
                     card: card,
                     billing_details: {
                         email: user?.email || 'unknown',
-                        name: user?.displayName || 'anonymous'
+                        name: user?.displayName || 'anonymous',
                     },
                 },
             },
@@ -64,6 +64,7 @@ const CheckoutForm = ({ price }) => {
             console.log(confirmError)
         }
         console.log( 'payment intent', paymentIntent)
+        // if(paymentIntent?.status==="succeeded")
 
 
     }
@@ -89,7 +90,7 @@ const CheckoutForm = ({ price }) => {
                         },
                     }}
                 />
-                <button className='btn btn-primary btn-outline btn-sm' type="submit" disabled={!stripe || !clientSecret}>
+                <button className='btn btn-primary btn-outline btn-sm' type="submit" >
                     Pay
                 </button>
             </form>

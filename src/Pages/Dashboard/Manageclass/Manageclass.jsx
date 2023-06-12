@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { Fade, Zoom } from 'react-awesome-reveal';
+import useClass from '../../../Hooks/useClass';
 
 const Manageclass = () => {
     const [managclass, setManageclass] = useState([]);
     const [loading, setLoading] = useState(true)
     const [disabled, setDisabled] = useState(false)
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
+    const [, refetch] = useClass()
 
     useEffect(() => {
         fetch('http://localhost:5000/addedclass')
@@ -19,10 +21,19 @@ const Manageclass = () => {
     }, [])
     // console.log(managclass)
     const handelAprovedClass = item => {
-        const {email, image, instructorName, name, price, seats} = item;
-        if(user && user.email){
+        const { email, image, instructorName, name, price, seats } = item;
+        if (user && user.email) {
             // console.log(classe)
-            const savedItem = {image, instructor:instructorName, name, price, seatsAvailable:seats, email, students: 0, status: 'approved'}
+            fetch(`http://localhost:5000/added/approve/${item._id}`, {
+                method: "PATCH",
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount) {
+                        refetch();
+                    }
+                })
+            const savedItem = { image, instructor: instructorName, name, price, seatsAvailable: seats, email, students: 0, status: 'approved' }
             fetch('http://localhost:5000/classes', {
                 method: 'POST',
                 headers: {
@@ -30,14 +41,15 @@ const Manageclass = () => {
                 },
                 body: JSON.stringify(savedItem)
             })
-            .then(res => res.json())
-            .then(data => {
-                if(data.insertedId){
-                    setDisabled(true);
-                    Swal.fire('Successfully Added in Classes Page')
-                }
-            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        setDisabled(true);
+                        Swal.fire('Successfully Added in Classes Page and updated status')
+                    }
+                })
         }
+
     }
     const handelDenyClass = item => {
 
@@ -53,17 +65,17 @@ const Manageclass = () => {
                             <div className="card-body">
                                 <h2 className="card-title">{item.name}</h2>
                                 <Fade cascade> <p>Instructor: {item.instructorName}</p>
-                                <p>Email:{item.email}</p>
-                                <p>Seats:{item.seats}</p>
-                                <p>Price:${item.price}</p>
-                                <p>Status:{item.status}</p>
+                                    <p>Email:{item.email}</p>
+                                    <p>Seats:{item.seats}</p>
+                                    <p>Price:${item.price}</p>
+                                    <p>Status:{item.status}</p>
                                 </Fade>
                                 <div className='flex justify-center gap-3'>
-                                    <button onClick={()=> handelAprovedClass(item)} disabled={disabled}  className='btn btn-primary btn-sm'>Approved</button>
-                                    <button onClick={()=> handelDenyClass(item)} className='btn btn-primary btn-sm'>Deny</button>
+                                    <button onClick={() => handelAprovedClass(item)} disabled={item.status === 'approved' || item.status === 'deny'} className='btn btn-primary btn-sm'>Approved</button>
+                                    <button onClick={() => handelDenyClass(item)} disabled={item.status === 'approved' || item.status === 'deny'} className='btn btn-primary btn-sm'>Deny</button>
                                     <button className='btn btn-primary btn-sm'>Feedback</button>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>)
