@@ -87,7 +87,7 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text">Status</span>
                         </label>
-                        <input type="text"{...register("status", { required: true })} placeholder="Status feild value is pending" className="input input-bordered w-full" />
+                        <input type="text" defaultValue={"pending"} {...register("status", { required: true })} placeholder="Status feild value is pending" className="input input-bordered w-full" />
 
                     </div>
                     <div className='text-center my-5 pb-5'>

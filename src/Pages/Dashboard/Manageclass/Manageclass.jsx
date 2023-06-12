@@ -52,6 +52,20 @@ const Manageclass = () => {
 
     }
     const handelDenyClass = item => {
+        if (user && user.email){
+
+            fetch(`http://localhost:5000/added/deny/${item._id}`, {
+                method: "PATCH",
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount) {
+                        refetch();
+                        Swal.fire('Successfully deny, updated status and added a feedback')
+                    }
+                })
+
+        }
 
     }
     return (
@@ -71,9 +85,10 @@ const Manageclass = () => {
                                     <p>Status:{item.status}</p>
                                 </Fade>
                                 <div className='flex justify-center gap-3'>
-                                    <button onClick={() => handelAprovedClass(item)} disabled={item.status === 'approved' || item.status === 'deny'} className='btn btn-primary btn-sm'>Approved</button>
-                                    <button onClick={() => handelDenyClass(item)} disabled={item.status === 'approved' || item.status === 'deny'} className='btn btn-primary btn-sm'>Deny</button>
-                                    <button className='btn btn-primary btn-sm'>Feedback</button>
+                                    <button disabled={!(item.status === 'pending')} onClick={() => handelAprovedClass(item)} className='btn btn-primary btn-sm'>Approved</button>
+                                    <button disabled={!(item.status === 'pending')} onClick={() => handelDenyClass(item)} className='btn btn-primary btn-sm'>Deny</button>
+                                    {/* <button className='btn btn-primary btn-sm'>Feedback</button> */}
+                                    {/* disabled={item.status === 'approved' || item.status === 'deny'} */}
                                 </div>
 
                             </div>

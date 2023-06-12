@@ -27,7 +27,10 @@ const AddedByInstructor = () => {
                               <Fade cascade damping={0.1}> <p>Instructor: {item.instructorName}</p>
                                 <p>Price:${item.price}</p>
                                 <p>Status:{item.status}</p>
-                                <p>Feedbace: Too more need to Learn</p>
+                                {/* <p>Feedbace:{item?.feadback}</p> */}
+                                if(item.feadback){
+                                    <p>Feedback: {item.feadback}</p>
+                                }
                                 <div className='text-end'>
                                     <button className='btn btn-primary btn-md'>Update</button>
                                 </div>
