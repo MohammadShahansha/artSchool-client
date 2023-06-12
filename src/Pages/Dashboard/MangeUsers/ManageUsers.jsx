@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
+import { Fade, Zoom } from 'react-awesome-reveal';
 import Swal from 'sweetalert2';
 const ManageUsers = () => {
     // const [disabled, setDisabled] = useState(false)
@@ -68,9 +69,9 @@ const ManageUsers = () => {
         <div className='w-full'>
             <h2 className='text-3xl font-semibold my-7'>Total Users: {users.length}</h2>
             <div className="overflow-x-auto">
-                <table className="table">
+            <Zoom delay={1000} duration={1000}>  <table className="table">
                     {/* head */}
-                    <thead>
+                      <thead>
                         <tr>
                             <th>#</th>
                             <th>Name</th>
@@ -83,7 +84,7 @@ const ManageUsers = () => {
                     <tbody>
                         {
                             users.map((user, index) => <tr key={user._id}>
-                                <th>{index + 1}</th>
+                              <td>{index + 1}</td> 
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
@@ -101,12 +102,13 @@ const ManageUsers = () => {
                                 <td>
                                 <button disabled={user.role === 'admin'} onClick={()=> handelMakeAdmin(user)} className='btn btn-primary btn-sm text-white'>Make Admin</button>
                                 </td>
+                                
                             </tr>)
                         }
                         
-                       
+                        
                     </tbody>
-                </table>
+                </table></Zoom> 
             </div>
         </div>
     );

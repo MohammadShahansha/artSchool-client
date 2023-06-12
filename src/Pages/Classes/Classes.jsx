@@ -60,7 +60,7 @@ const Classes = () => {
                             <p>Available seats: {classe.seatsAvailable}</p>
                             <p>Price: ${classe.price}</p>
                             <div className="flex justify-end">
-                                <button disabled={ user.role==='instructor' || user.role === 'admin'} onClick={() => handelSelectedItem(classe)} className="btn btn-primary">Select</button>
+                                <button disabled={ user?.role==='instructor' || user?.role === 'admin'} onClick={() => handelSelectedItem(classe)} className="btn btn-primary">Select</button>
                             </div>
                         </div>
                     </div>

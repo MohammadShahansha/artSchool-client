@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import { Zoom } from 'react-awesome-reveal';
 
 const AddClass = () => {
     const { user } = useContext(AuthContext)
@@ -30,6 +31,7 @@ const AddClass = () => {
     console.log(errors);
     return (
         <div className='w-full ms-10 rounded-md'>
+            <Zoom delay={1000} duration={1000}>
             <div className=" bg-base-200 px-10 rounded-md my-10">
                 <h2 className='text-5xl font-semibold text-center mb-5'>Add Class</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-5'>
@@ -93,6 +95,7 @@ const AddClass = () => {
                     </div>
                 </form>
             </div>
+            </Zoom>
         </div>
 
     );

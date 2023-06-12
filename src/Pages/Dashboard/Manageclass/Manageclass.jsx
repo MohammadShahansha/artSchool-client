@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import { Fade, Zoom } from 'react-awesome-reveal';
 
 const Manageclass = () => {
     const [managclass, setManageclass] = useState([]);
@@ -48,14 +49,15 @@ const Manageclass = () => {
                 {
                     managclass.map(item => <div key={item._id}>
                         <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                            <figure><img src={item.image} alt="Art image" /></figure>
+                            <figure><Zoom delay={1000} duration={1000}><img src={item.image} alt="Art image" /></Zoom></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{item.name}</h2>
-                                <p>Instructor: {item.instructorName}</p>
+                                <Fade cascade> <p>Instructor: {item.instructorName}</p>
                                 <p>Email:{item.email}</p>
                                 <p>Seats:{item.seats}</p>
                                 <p>Price:${item.price}</p>
                                 <p>Status:{item.status}</p>
+                                </Fade>
                                 <div className='flex justify-center gap-3'>
                                     <button onClick={()=> handelAprovedClass(item)} disabled={disabled}  className='btn btn-primary btn-sm'>Approved</button>
                                     <button onClick={()=> handelDenyClass(item)} className='btn btn-primary btn-sm'>Deny</button>

@@ -49,7 +49,7 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
     },
     {
       path: 'dashboard',
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         {
           path: 'myclass',

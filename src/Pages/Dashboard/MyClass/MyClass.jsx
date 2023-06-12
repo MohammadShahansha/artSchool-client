@@ -2,6 +2,7 @@ import React from 'react';
 import useClass from '../../../Hooks/useClass';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import { Zoom } from 'react-awesome-reveal';
 
 const MyClass = () => {
     const [selectedClass, refetch] = useClass();
@@ -49,7 +50,7 @@ const MyClass = () => {
             </div>
             <div>
                 <div className="overflow-x-auto w-full">
-                    <table className="table">
+                <Zoom delay={1000} duration={1000}>  <table className="table">
                         {/* head */}
                         <thead>
                             <tr>
@@ -69,15 +70,15 @@ const MyClass = () => {
                                     <td>
                                         <div className="flex items-center space-x-3">
                                             <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
+                                            <Zoom delay={1000} duration={1000}> <div className="mask mask-squircle w-12 h-12">
                                                     <img src={item.image} alt="Avatar Tailwind CSS Component" />
-                                                </div>
+                                                </div></Zoom>
                                             </div>
                                             
                                         </div>
                                     </td>
-                                    <td>{item.name}</td>
-                                    <td>${item.price}</td>
+                                     <td>{item.name}</td>
+                                     <td>${item.price}</td>
                                     <th>
                                         <button onClick={()=> handelDelete(item)} className="btn bg-red-600 btn-sm text-white">Delete</button>
                                     </th>
@@ -88,7 +89,7 @@ const MyClass = () => {
                         </tbody>
 
 
-                    </table>
+                    </table></Zoom>
                 </div>
             </div>
         </div>
