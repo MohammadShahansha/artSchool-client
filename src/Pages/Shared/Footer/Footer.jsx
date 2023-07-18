@@ -4,8 +4,8 @@ const Footer = () => {
     return (
         <div className='my-20'>
             <footer className="md:flex md:justify-between p-10 bg-base-200 text-base-content">
-                <div className='flex flex-col text-center text-2xl font-medium mb-3'>
-                    <p>Arts & Craft School</p>
+                <div className='flex flex-col items-center text-center text-2xl font-medium mb-3'>
+                    <p className='my-auto'>Arts & <br />Craft School</p>
                 </div>
                 <div className='flex flex-col text-center'>
                     <span className="footer-title mt-4">Services</span>

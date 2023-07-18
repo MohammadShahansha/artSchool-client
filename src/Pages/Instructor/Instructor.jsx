@@ -13,12 +13,12 @@ const Instructor = () => {
         })
     },[])
     return (
-        <div className='grid grid-cols-3 gap-3'>
+        <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
         {
             instructors.map(instructor => <div
                 key={instructor._id}
             >
-                <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                <div className="card card-compact bg-base-100 shadow-xl">
                     <figure><img src={instructor.instructorImage} alt="Art Image" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{instructor.instructor}</h2>

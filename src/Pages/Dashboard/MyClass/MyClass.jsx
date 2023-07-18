@@ -8,7 +8,7 @@ import axios from 'axios';
 const MyClass = () => {
     const [selectedClass, refetch] = useClass();
     console.log(selectedClass)
-    const totalPrice = selectedClass.reduce((sum, eachItem) => eachItem.price + sum, 0);
+    const totalPrice = selectedClass.reduce((sum, eachItem) => parseInt(eachItem.price) + sum, 0);
     const [clientSecret, setClientSecret] = useState('')
 
     const handlePrice=async(price)=>{

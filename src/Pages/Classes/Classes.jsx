@@ -47,12 +47,12 @@ const Classes = () => {
         }
     }
     return (
-        <div className='grid grid-cols-3 gap-3'>
+        <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
             {
                 classes.map(classe => <div
                     key={classe._id}
                 >
-                    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                    <div className="card card-compact bg-base-100 shadow-xl">
                         <figure><img src={classe.image} alt="Art Image" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{classe.name}</h2>

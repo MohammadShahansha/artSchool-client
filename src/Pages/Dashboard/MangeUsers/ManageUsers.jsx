@@ -67,7 +67,7 @@ const ManageUsers = () => {
 
     return (
         <div className='w-full'>
-            <h2 className='text-3xl font-semibold my-7'>Total Users: {users.length}</h2>
+            <h2 className='text-3xl font-semibold my-7 flex justify-center'>Total Users: {users.length}</h2>
             <div className="overflow-x-auto">
             <Zoom delay={1000} duration={1000}>  <table className="table">
                     {/* head */}

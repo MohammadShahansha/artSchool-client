@@ -30,19 +30,19 @@ const AddClass = () => {
     };
     console.log(errors);
     return (
-        <div className='w-full ms-10 rounded-md'>
+        <div className='w-full md:ms-10 rounded-md'>
             <Zoom delay={1000} duration={1000}>
-            <div className=" bg-base-200 px-10 rounded-md my-10">
+            <div className=" bg-base-200 px-10 rounded-md md:my-10">
                 <h2 className='text-5xl font-semibold text-center mb-5'>Add Class</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className='mb-5'>
-                    <div className="flex gap-5">
-                        <div className="form-control w-1/2">
+                    <div className="md:flex gap-5">
+                        <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Class Name</span>
                             </label>
                             <input type="text" {...register("name", { required: true })} placeholder="Class Name" className="input input-bordered w-full" />
                         </div>
-                        <div className="form-control w-1/2">
+                        <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Class Image</span>
                             </label>
@@ -52,14 +52,14 @@ const AddClass = () => {
 
                         </div>
                     </div>
-                    <div className="flex gap-5">
-                        <div className="form-control w-1/2">
+                    <div className="md:flex gap-5">
+                        <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Instructor Name</span>
                             </label>
                             <input type="text" defaultValue={user?.displayName} {...register("instructorName", { required: true })} placeholder="Instructor Name" className="input input-bordered w-full" />
                         </div>
-                        <div className="form-control w-1/2">
+                        <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Instructor Email</span>
                             </label>
@@ -67,14 +67,14 @@ const AddClass = () => {
 
                         </div>
                     </div>
-                    <div className="flex gap-5">
-                        <div className="form-control w-1/2">
+                    <div className="md:flex gap-5">
+                        <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Available Seats</span>
                             </label>
                             <input type="number" {...register("seats", { required: true })} placeholder="Available Seats" className="input input-bordered w-full" />
                         </div>
-                        <div className="form-control w-1/2">
+                        <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
@@ -83,7 +83,7 @@ const AddClass = () => {
                         </div>
 
                     </div>
-                    <div className="form-control w-1/2">
+                    <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Status</span>
                         </label>
