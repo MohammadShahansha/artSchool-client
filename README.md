@@ -17,3 +17,5 @@ Package name which i used:
 + React Awwsome revel etc.
 
 Website live link: https://assignment-twelve-dfcd6.web.app/
+admin email: am@jam.com
+admin pass: Sh@123

@@ -22,7 +22,7 @@ const PopulerInstructor = () => {
                     key={pi._id}
                 >
                     <div className="p-2 card card-compact w-96 bg-base-100 shadow-xl">
-                        <figure><img src={pi.instructorImage} alt="Art Image" /></figure>
+                        <figure><img className='md:h-[300px]' src={pi.instructorImage} alt="Art Image" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{pi.name}</h2>
                             <p>Instructo: {pi.instructor}</p>

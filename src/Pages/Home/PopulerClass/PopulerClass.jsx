@@ -22,7 +22,7 @@ const PopulerClass = () => {
                     key={classe._id}
                 >
                     <div className=" p-2 card card-compact w-96 bg-base-100 shadow-xl">
-                        <figure><img src={classe.image} alt="Art Image" /></figure>
+                        <figure><img className='md:h-[300px]' src={classe.image} alt="Art Image" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{classe.name}</h2>
                             <p>Instructo: {classe.instructor}</p>

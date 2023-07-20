@@ -19,7 +19,7 @@ const Instructor = () => {
                 key={instructor._id}
             >
                 <div className="card card-compact bg-base-100 shadow-xl">
-                    <figure><img src={instructor.instructorImage} alt="Art Image" /></figure>
+                    <figure><img className='h-[300px]' src={instructor.instructorImage} alt="Art Image" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{instructor.instructor}</h2>
                         <p>Instructo Email: {instructor.email}</p>

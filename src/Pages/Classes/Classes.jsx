@@ -53,7 +53,7 @@ const Classes = () => {
                     key={classe._id}
                 >
                     <div className="card card-compact bg-base-100 shadow-xl">
-                        <figure><img src={classe.image} alt="Art Image" /></figure>
+                        <figure><img className='md:h-[300px]' src={classe.image} alt="Art Image" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{classe.name}</h2>
                             <p>Instructo: {classe.instructor}</p>

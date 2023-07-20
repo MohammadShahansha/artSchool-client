@@ -75,7 +75,7 @@ const Manageclass = () => {
                 {
                     managclass.map(item => <div key={item._id}>
                         <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                            <figure><Zoom delay={1000} duration={1000}><img src={item.image} alt="Art image" /></Zoom></figure>
+                            <figure><Zoom delay={1000} duration={1000}><img className='md:h-[300px]' src={item.image} alt="Art image" /></Zoom></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{item.name}</h2>
                                 <Fade cascade> <p>Instructor: {item.instructorName}</p>

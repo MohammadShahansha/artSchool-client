@@ -30,7 +30,7 @@ const Navbar = () => {
     </>
     return (
         <div className=' sticky top-0 z-10'>
-            <div className="navbar fixed top-0 opacity-50 text-white bg-black container">
+            <div className="navbar fixed top-0 opacity-80 text-white bg-black container">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -43,7 +43,7 @@ const Navbar = () => {
                     <a className="btn btn-ghost normal-case text-xl">Arts & Craft School</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal font-semibold text-xl px-1">
+                    <ul className="menu menu-horizontal text-white font-semibold text-xl px-1">
                         {navItem}
                     </ul>
                 </div>
