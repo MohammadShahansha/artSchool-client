@@ -63,8 +63,6 @@ const CheckoutForm = ({ price }) => {
 
     }
 
-
-
     return (
         <>
             <form onSubmit={handleSubmit}>

@@ -8,6 +8,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_PK);
 const Payment = () => {
     const [selectedClass] = useClass();
     const price =localStorage.getItem('price');
+    console.log(price)
 
     return (
         <div>

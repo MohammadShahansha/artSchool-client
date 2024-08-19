@@ -1,51 +1,68 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
-import { Zoom } from "react-awesome-reveal";
+import { AuthContext } from "../Provider/AuthProvider";
+// import Swal from "sweetalert2";
+// import { Zoom } from "react-awesome-reveal";
 
-const AddClass = () => {
+const UpdateClass = ({ classData }) => {
   const { user } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
+
+  // Update the form values when classData changes
+  useEffect(() => {
+    if (classData) {
+      reset({
+        name: classData?.name,
+        instructorName: user?.displayName,
+        email: user?.email,
+        image: classData?.image,
+        seats: classData?.seats,
+        price: classData?.price,
+        status: classData?.status || "pending",
+      });
+    }
+  }, [classData, reset, user]);
+  console.log(classData);
   const onSubmit = (data) => {
-    console.log(data);
-    const { email, image, instructorName, name, price, seats, status } = data;
-    if (user && user.email) {
-      // console.log(classe)
-      const savedClass = {
-        email,
-        image,
-        instructorName,
-        name,
-        price,
-        seats,
-        status,
-      };
-      fetch("https://assignment-twelve-server-zeta.vercel.app/addedclass", {
-        method: "POST",
+    console.log("Submitted Data:", data);
+
+    fetch(
+      `https://assignment-twelve-server-zeta.vercel.app/updateClass/${classData._id}`,
+      {
+        method: "PATCH",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(savedClass),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.insertedId) {
-            Swal.fire("Successfully Added");
-          }
-        });
-    }
+        body: JSON.stringify(data),
+      }
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.modifiedCount > 0) {
+          console.log("Class updated successfully:", result);
+          document.getElementById("my_modal_5").close();
+        }
+      });
   };
-  console.log(errors);
+
   return (
-    <div className="w-full md:ms-10 rounded-md">
-      <Zoom delay={1000} duration={1000}>
-        <div className=" bg-base-200 px-10 rounded-md md:my-10">
-          <h2 className="text-5xl font-semibold text-center mb-5">Add Class</h2>
+    <div>
+      {/* Open the modal using document.getElementById('ID').showModal() method */}
+      {/* <button
+        className="btn"
+        onClick={() => document.getElementById("my_modal_5").showModal()}
+      >
+        open modal
+      </button> */}
+      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Hello!</h3>
           <form onSubmit={handleSubmit(onSubmit)} className="mb-5">
             <div className="md:flex gap-5">
               <div className="form-control md:w-1/2">
@@ -54,6 +71,7 @@ const AddClass = () => {
                 </label>
                 <input
                   type="text"
+                  defaultValue={classData?.name}
                   {...register("name", { required: true })}
                   placeholder="Class Name"
                   className="input input-bordered w-full"
@@ -67,6 +85,7 @@ const AddClass = () => {
 
                 <input
                   type="text"
+                  defaultValue={classData?.image}
                   {...register("image", { required: true })}
                   placeholder="image"
                   className="input input-bordered w-full"
@@ -106,6 +125,7 @@ const AddClass = () => {
                 </label>
                 <input
                   type="number"
+                  defaultValue={classData?.seats}
                   {...register("seats", { required: true })}
                   placeholder="Available Seats"
                   className="input input-bordered w-full"
@@ -117,6 +137,7 @@ const AddClass = () => {
                 </label>
                 <input
                   type="number"
+                  defaultValue={classData?.name}
                   {...register("price", { required: true })}
                   placeholder="Price"
                   className="input input-bordered w-full"
@@ -143,10 +164,16 @@ const AddClass = () => {
               />
             </div>
           </form>
+          <div className="modal-action">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="btn">Close</button>
+            </form>
+          </div>
         </div>
-      </Zoom>
+      </dialog>
     </div>
   );
 };
 
-export default AddClass;
+export default UpdateClass;
