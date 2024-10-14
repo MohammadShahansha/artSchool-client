@@ -25,7 +25,7 @@ const AddedByInstructor = () => {
 
   return (
     <div>
-      <h2 className="text-5xl text-center font-semibold my-5">My Class</h2>
+      <h2 className="text-5xl text-center font-semibold my-5">My Classes</h2>
       <div className="grid md:grid-cols-2 gap-5">
         {getClass.map((item) => (
           <div key={item._id}>

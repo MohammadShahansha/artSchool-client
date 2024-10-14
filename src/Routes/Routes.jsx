@@ -16,6 +16,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import UpdateModal from "../Components/UpdateModal";
 import UpdateClass from "../Components/UpdateModal";
+import DashboardContent from "../Pages/Dashboard/DashboardContent/DashboardContent";
 
 export const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
       {
         path: "update",
         element: <UpdateClass />,
+      },
+      {
+        path: "dashboard-content",
+        element: <DashboardContent></DashboardContent>,
       },
     ],
   },

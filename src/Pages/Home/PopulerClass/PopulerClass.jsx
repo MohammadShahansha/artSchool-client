@@ -64,7 +64,7 @@ const PopulerClass = () => {
       <h2 className="text-5xl text-center font-semibold my-5">
         Populer Classes
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:ml-20">
         {populerclass.slice(0, 6).map((classe) => (
           <div key={classe._id}>
             <div className=" p-2 card card-compact w-96 bg-base-100 shadow-xl">

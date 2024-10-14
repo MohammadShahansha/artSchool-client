@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   FaHome,
   FaSchool,
@@ -17,7 +17,6 @@ import useInstructor from "../Hooks/useInstructor";
 
 const Dashboard = () => {
   const [selectedClass] = useClass();
-
   //TODO--------------------------------------------------------
   // const isAdmin = true;
   // const isInstructor = false;
@@ -78,11 +77,7 @@ const Dashboard = () => {
                 ) : (
                   <>
                     {/* <li><NavLink to="enrolled"><GiConfirmed></GiConfirmed> My Enrolled class</NavLink></li> */}
-                    <li>
-                      <NavLink to="/payment">
-                        <FaWallet></FaWallet> Payment
-                      </NavLink>
-                    </li>
+
                     <li>
                       <NavLink to="/dashboard/myclass">
                         <FaShoppingCart></FaShoppingCart> My Selected Class

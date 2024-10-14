@@ -14,11 +14,12 @@ const MyClass = () => {
   );
   const [clientSecret, setClientSecret] = useState("");
 
-  const handlePrice = async (price) => {
+  const handlePrice = async (price, id) => {
     localStorage.setItem("price", price);
+    localStorage.setItem("id", id);
     const data = await axios.post(
       "https://assignment-twelve-server-zeta.vercel.app/create-payment-intent",
-      { price: price }
+      { price: price, id: id }
     );
     localStorage.setItem("client", data.data.clientSecret);
   };
@@ -52,7 +53,9 @@ const MyClass = () => {
   };
   return (
     <div className="w-full">
-      <h2>my classes</h2>
+      <h2 className="text-5xl text-center font-semibold my-5">
+        My Selected Classes
+      </h2>
       <div className="flex justify-evenly w-full text-2xl font-semibold mb-5">
         <h2>Total Class: {selectedClass.length}</h2>
         <h2>Total Price: {totalPrice}</h2>
@@ -70,7 +73,7 @@ const MyClass = () => {
                   <th>name</th>
                   <th>Price</th>
                   <th>Action</th>
-                  <th>Action</th>
+                  {/* <th>Action</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -97,19 +100,18 @@ const MyClass = () => {
                     <td>
                       <button
                         onClick={() => handelDelete(item)}
-                        className="btn bg-red-600 btn-sm text-white"
+                        className="btn bg-red-600 btn-sm text-white mr-5"
                       >
                         Delete
                       </button>
-                    </td>
-                    <td>
                       <button
-                        onClick={() => handlePrice(item.price)}
+                        onClick={() => handlePrice(item?.price, item?._id)}
                         className="btn btn-primary btn-sm"
                       >
                         <Link to="/dashboard/payment">Pay</Link>
                       </button>
                     </td>
+                    {/* <td></td> */}
                   </tr>
                 ))}
               </tbody>
