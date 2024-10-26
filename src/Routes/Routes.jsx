@@ -17,6 +17,7 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
 import UpdateModal from "../Components/UpdateModal";
 import UpdateClass from "../Components/UpdateModal";
 import DashboardContent from "../Pages/Dashboard/DashboardContent/DashboardContent";
+import DetailClass from "../Pages/DetailClass/DetailClass";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "/instructor",
         element: <Instructor></Instructor>,
+      },
+      {
+        path: "/detailsClass",
+        element: <DetailClass></DetailClass>,
       },
     ],
   },

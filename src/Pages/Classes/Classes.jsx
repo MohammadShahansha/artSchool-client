@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Classes = () => {
   const { user } = useContext(AuthContext);
@@ -62,8 +62,11 @@ const Classes = () => {
       navigate("/login", { state: { from: location } });
     }
   };
+  const handleDetails = (selectedClass) => {
+    navigate("/detailsClass", { state: { singleClass: selectedClass } });
+  };
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+    <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 mx-5 mt-5">
       {classes.map((classe) => (
         <div key={classe._id}>
           <div className="card card-compact bg-base-100 shadow-xl">
@@ -75,20 +78,37 @@ const Classes = () => {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{classe.name}</h2>
-              <p>Instructo: {classe.instructor}</p>
-              <p>Available seats: {classe.seatsAvailable}</p>
-              <p>Price: ${classe.price}</p>
-              <div className="flex justify-end">
-                <button
-                  disabled={
-                    user?.role === "instructor" || user?.role === "admin"
-                  }
-                  onClick={() => handelSelectedItem(classe)}
-                  className="btn btn-primary"
-                >
-                  Select
-                </button>
+              <div className="flex justify-between">
+                <div>
+                  <h2 className="card-title">{classe.name}</h2>
+                  <p>Instructo: {classe.instructor}</p>
+                  <p>Student: {classe.students}</p>
+                  <p>Available seats: {classe.seatsAvailable}</p>
+                  <p>Price: {classe.price}</p>
+                </div>
+                <div className="flex items-end">
+                  <div className="flex flex-col gap-2">
+                    <button
+                      // disabled={
+                      //   user?.role === "instructor" || user?.role === "admin"
+                      // }
+                      // to="/detailsClass"
+                      onClick={() => handleDetails(classe)}
+                      className="btn bg-[#2046e0] text-white hover:bg-[#062d50]"
+                    >
+                      Details
+                    </button>
+                    <button
+                      disabled={
+                        user?.role === "instructor" || user?.role === "admin"
+                      }
+                      onClick={() => handelSelectedItem(classe)}
+                      className="btn bg-[#062d50] text-white hover:bg-[#2046e0]"
+                    >
+                      Select
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
