@@ -160,7 +160,7 @@ const UpdateClass = ({ classData }) => {
               <input
                 className="btn btn-primary text-center"
                 type="submit"
-                value="Add Class"
+                value="Update Class"
               />
             </div>
           </form>

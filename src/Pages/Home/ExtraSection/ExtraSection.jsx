@@ -3,14 +3,11 @@ import img from "../../../assets/Home/zainul.jpg";
 
 const ExtraSection = () => {
   return (
-    <div className="mt-20">
-      <h2 className="text-5xl text-center font-semibold my-10">
+    <div className="mt-20 md:mx-5">
+      <h2 className="text-4xl text-center font-bold my-10">
         Master of Art in Bangladesh
       </h2>
-      <div className="card lg:card-side bg-base-100  p-3">
-        <figure>
-          <img className="rounded-md" src={img} alt="Album" />
-        </figure>
+      <div className="card lg:card-side bg-base-100">
         <div className="card-body">
           <h2 className="text-3xl text-center font-semibold">Zinul Abedin</h2>
           <h2 className="text-xl text-center font-semibold">
@@ -35,6 +32,9 @@ const ExtraSection = () => {
             place as a legendary figure in Bangladeshi art history.
           </p>
         </div>
+        <figure>
+          <img className="rounded-md" src={img} alt="Album" />
+        </figure>
       </div>
     </div>
   );

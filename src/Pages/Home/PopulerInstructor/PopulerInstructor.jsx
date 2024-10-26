@@ -14,17 +14,17 @@ const PopulerInstructor = () => {
   }, []);
   // console.log(populerInstructor)
   return (
-    <div className="">
-      <h2 className="text-5xl text-center font-semibold my-5">
-        Populer Instructor
+    <div className="md:mx-5">
+      <h2 className="text-4xl text-center font-bold my-5">
+        Populer Instructors
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:ml-20">
-        {populerInstructor.slice(0, 6).map((pi) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        {populerInstructor.slice(0, 4).map((pi) => (
           <div key={pi._id}>
-            <div className="p-2 card card-compact w-96 bg-base-100 shadow-xl">
+            <div className=" card card-compact  bg-base-100 shadow-xl">
               <figure>
                 <img
-                  className="md:h-[300px]"
+                  className="md:h-[250px]"
                   src={pi.instructorImage}
                   alt="Art Image"
                 />

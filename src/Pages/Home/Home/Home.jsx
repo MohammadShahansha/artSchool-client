@@ -10,8 +10,9 @@ const Home = () => {
     <div className="dark:bg-gray-900">
       <Slider></Slider>
       <PopulerClass></PopulerClass>
-      <PopulerInstructor></PopulerInstructor>
       <WhyWe></WhyWe>
+      <PopulerInstructor></PopulerInstructor>
+
       <ExtraSection></ExtraSection>
     </div>
   );

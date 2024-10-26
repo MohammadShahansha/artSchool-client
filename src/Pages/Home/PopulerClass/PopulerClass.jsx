@@ -60,37 +60,39 @@ const PopulerClass = () => {
     }
   };
   return (
-    <div className="mb-20">
-      <h2 className="text-5xl text-center font-semibold my-5">
-        Populer Classes
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:ml-20">
-        {populerclass.slice(0, 6).map((classe) => (
-          <div key={classe._id}>
-            <div className=" p-2 card card-compact w-96 bg-base-100 shadow-xl">
+    <div className=" mb-10 md:mx-5">
+      <h2 className="text-4xl text-center font-bold my-5">Populer Classes</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 justify-center gap-2 ">
+        {populerclass.slice(0, 4).map((classe) => (
+          <div key={classe._id} className="">
+            <div className=" card card-compact w-full bg-base-100 shadow-xl">
               <figure>
                 <img
-                  className="md:h-[300px]"
+                  className="h-[250px] w-full"
                   src={classe.image}
                   alt="Art Image"
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">{classe.name}</h2>
-                <p>Instructo: {classe.instructor}</p>
-                <p>Student: {classe.students}</p>
-                <p>Available seats: {classe.seatsAvailable}</p>
-                <p>Price: {classe.price}</p>
-                <div className="flex justify-end">
-                  <button
-                    disabled={
-                      user?.role === "instructor" || user?.role === "admin"
-                    }
-                    onClick={() => handelSelectedItem(classe)}
-                    className="btn btn-primary"
-                  >
-                    Select
-                  </button>
+                <div className="flex justify-between">
+                  <div>
+                    <h2 className="card-title">{classe.name}</h2>
+                    <p>Instructo: {classe.instructor}</p>
+                    <p>Student: {classe.students}</p>
+                    <p>Available seats: {classe.seatsAvailable}</p>
+                    <p>Price: {classe.price}</p>
+                  </div>
+                  <div className="flex items-end">
+                    <button
+                      disabled={
+                        user?.role === "instructor" || user?.role === "admin"
+                      }
+                      onClick={() => handelSelectedItem(classe)}
+                      className="btn btn-primary"
+                    >
+                      Select
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
