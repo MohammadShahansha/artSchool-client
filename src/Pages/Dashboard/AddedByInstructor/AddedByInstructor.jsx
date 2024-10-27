@@ -24,43 +24,53 @@ const AddedByInstructor = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-5xl text-center font-semibold my-5">My Classes</h2>
-      <div className="grid md:grid-cols-2 gap-5">
+    <div className="px-5">
+      <h2 className="text-3xl md:text-4xl text-center font-semibold my-5">
+        All Classes
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {getClass.map((item) => (
           <div key={item._id}>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
               <figure>
                 <Zoom delay={1000} duration={1000} direction="up">
                   <img
-                    className="md:h-[300px]"
+                    className="h-[250px] w-full"
                     src={item.image}
                     alt="Art image"
                   />
                 </Zoom>
               </figure>
-              <div className="card-body">
-                <h2 className="card-title">{item.name}</h2>
-                <Fade cascade damping={0.1}>
-                  {" "}
-                  <p>Instructor: {item.instructorName}</p>
-                  <p>Price:${item.price}</p>
-                  <p>Status:{item.status}</p>
-                  {/* <p>Feedbace:{item?.feadback}</p> */}
-                  if(item.feadback){<p>Feedback: {item.feadback}</p>}
-                  <div className="text-end">
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => handleUpdateClick(item)}
-                    >
-                      Update
-                    </button>
+              <div className="flex justify-between p-3">
+                <div>
+                  <h2 className="card-title">{item.name}</h2>
+                  <Fade cascade damping={0.1}>
+                    <div className="flex items-center gap-2">
+                      <h2 className="font-semibold">Instructor:</h2>
+                      <p>{item.instructorName}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <h2 className="font-semibold">Price:</h2>
+                      <p>{item.price}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <h2 className="font-semibold">Status:</h2>
+                      <p>{item.status}</p>
+                    </div>
+                  </Fade>
+                </div>
+                <div className="flex items-end">
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => handleUpdateClick(item)}
+                  >
+                    Update
+                  </button>
 
-                    {/* <Link to="/dashboard/update" state={item}>
+                  {/* <Link to="/dashboard/update" state={item}>
                       <button className="btn btn-primary btn-md">Update</button>
                     </Link> */}
-                  </div>
-                </Fade>
+                </div>
               </div>
             </div>
           </div>

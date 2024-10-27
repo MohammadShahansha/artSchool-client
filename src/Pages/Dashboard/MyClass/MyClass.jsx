@@ -53,18 +53,20 @@ const MyClass = () => {
   };
   return (
     <div className="w-full">
-      <h2 className="text-5xl text-center font-semibold my-5">
-        My Selected Classes
-      </h2>
-      <div className="flex justify-evenly w-full text-2xl font-semibold mb-5">
-        <h2>Total Class: {selectedClass.length}</h2>
-        <h2>Total Price: {totalPrice}</h2>
+      <div className="">
+        <h2 className="text-3xl md:text-5xl text-center font-semibold my-5">
+          My Selected Classes
+        </h2>
+        <div className="flex-col mx-auto text-center md:flex-row justify-center md:justify-evenly text-2xl font-semibold mb-5">
+          <h2>Total Class: {selectedClass.length}</h2>
+          <h2>Total Price: {totalPrice}</h2>
+        </div>
       </div>
-      <div>
-        <div className="overflow-x-auto w-full">
+      <div className="w-full">
+        <div className="w-full overflow-x-auto">
           <Zoom delay={1000} duration={1000}>
             {" "}
-            <table className="table">
+            <table className="table w-full overflow-x-auto">
               {/* head */}
               <thead>
                 <tr>

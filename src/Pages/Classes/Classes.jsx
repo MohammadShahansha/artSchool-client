@@ -72,7 +72,7 @@ const Classes = () => {
           <div className="card card-compact bg-base-100 shadow-xl">
             <figure>
               <img
-                className="md:h-[300px]"
+                className="h-[250px] w-full"
                 src={classe.image}
                 alt="Art Image"
               />

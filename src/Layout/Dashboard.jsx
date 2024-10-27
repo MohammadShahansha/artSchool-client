@@ -47,14 +47,25 @@ const Dashboard = () => {
             {isAdmin ? (
               <>
                 {/* <li><NavLink to="enrolled"><FaHome></FaHome> Admin Home</NavLink></li> */}
+
+                <li>
+                  <NavLink to="/dashboard/manageusers">
+                    <FaUsers></FaUsers> Manage Users
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/addclass">
+                    <FaUtensils></FaUtensils> Add a Class
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink to="/dashboard/manageclass">
                     <MdClass></MdClass> Manage Classes
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/manageusers">
-                    <FaUsers></FaUsers> Manage Users
+                  <NavLink to="/dashboard/addedinstructor">
+                    <FaUtensils></FaUtensils> All Class
                   </NavLink>
                 </li>
               </>

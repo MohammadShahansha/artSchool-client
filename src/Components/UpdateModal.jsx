@@ -32,22 +32,38 @@ const UpdateClass = ({ classData }) => {
   const onSubmit = (data) => {
     console.log("Submitted Data:", data);
 
-    fetch(
-      `https://assignment-twelve-server-zeta.vercel.app/updateClass/${classData._id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.modifiedCount > 0) {
-          console.log("Class updated successfully:", result);
-          document.getElementById("my_modal_5").close();
+    // fetch(`http://localhost:5000/updateClass/${classData._id}`, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((res) => res.json())
+    //   .then((result) => {
+    //     if (result.modifiedCount > 0) {
+    //       console.log("Class updated successfully:", result);
+    //       document.getElementById("my_modal_5").close();
+    //     }
+    //   });
+
+    fetch(`http://localhost:5000/updateClass/${classData._id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          // Log an error if the server response is not OK
+          throw new Error(`Server Error: ${res.status}`);
         }
+        return res.json();
+      })
+      .then((result) => {
+        console.log("Update result:", result);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
   };
 

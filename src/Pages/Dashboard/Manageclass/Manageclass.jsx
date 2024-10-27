@@ -82,46 +82,60 @@ const Manageclass = () => {
   return (
     <div>
       <h2 className="text-5xl text-center font-semibold my-5">Manage Class</h2>
-      <div className="grid md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 p-2">
         {managclass.map((item) => (
-          <div key={item._id}>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+          <div key={item._id} className="">
+            <div className="card card-compact bg-base-100 shadow-xl">
               <figure>
                 <Zoom delay={1000} duration={1000}>
-                  <img
-                    className="md:h-[300px]"
-                    src={item.image}
-                    alt="Art image"
-                  />
+                  <img className="h-[250px]" src={item.image} alt="Art image" />
                 </Zoom>
               </figure>
-              <div className="card-body">
-                <h2 className="card-title">{item.name}</h2>
-                <Fade cascade>
-                  {" "}
-                  <p>Instructor: {item.instructorName}</p>
-                  <p>Email:{item.email}</p>
-                  <p>Seats:{item.seats}</p>
-                  <p>Price:${item.price}</p>
-                  <p>Status:{item.status}</p>
-                </Fade>
-                <div className="flex justify-center gap-3">
-                  <button
-                    disabled={!(item.status === "pending")}
-                    onClick={() => handelAprovedClass(item)}
-                    className="btn btn-primary btn-sm"
-                  >
-                    Approved
-                  </button>
-                  <button
-                    disabled={!(item.status === "pending")}
-                    onClick={() => handelDenyClass(item)}
-                    className="btn btn-primary btn-sm"
-                  >
-                    Deny
-                  </button>
-                  {/* <button className='btn btn-primary btn-sm'>Feedback</button> */}
-                  {/* disabled={item.status === 'approved' || item.status === 'deny'} */}
+              <div className=" flex justify-between p-3">
+                <div>
+                  <h2 className="card-title">{item.name}</h2>
+                  <Fade cascade>
+                    <div className="flex items-center gap-2">
+                      <h2 className="font-semibold">Instructor:</h2>
+                      <p>{item.instructorName}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <h2 className="font-semibold">Email:</h2>
+                      <p>{item.email}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <h2 className="font-semibold">Seats:</h2>
+                      <p>{item.seats}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <h2 className="font-semibold">Price:</h2>
+                      <p>{item.price}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <h2 className="font-semibold">Status:</h2>
+                      <p>{item.status}</p>
+                    </div>
+                  </Fade>
+                </div>
+                <div className="flex items-end">
+                  <div className="flex flex-col items-end gap-2">
+                    <button
+                      disabled={!(item.status === "pending")}
+                      onClick={() => handelAprovedClass(item)}
+                      className="btn btn-primary btn-sm"
+                    >
+                      Approved
+                    </button>
+                    <button
+                      disabled={!(item.status === "pending")}
+                      onClick={() => handelDenyClass(item)}
+                      className="btn btn-primary btn-sm"
+                    >
+                      Deny
+                    </button>
+                    {/* <button className='btn btn-primary btn-sm'>Feedback</button> */}
+                    {/* disabled={item.status === 'approved' || item.status === 'deny'} */}
+                  </div>
                 </div>
               </div>
             </div>

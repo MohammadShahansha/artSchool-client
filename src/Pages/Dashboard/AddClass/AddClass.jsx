@@ -45,7 +45,9 @@ const AddClass = () => {
     <div className="w-full md:ms-10 rounded-md">
       <Zoom delay={1000} duration={1000}>
         <div className=" bg-base-200 px-10 rounded-md md:my-10">
-          <h2 className="text-5xl font-semibold text-center mb-5">Add Class</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold text-center mb-5">
+            Add a Class
+          </h2>
           <form onSubmit={handleSubmit(onSubmit)} className="mb-5">
             <div className="md:flex gap-5">
               <div className="form-control md:w-1/2">
@@ -80,7 +82,7 @@ const AddClass = () => {
                 </label>
                 <input
                   type="text"
-                  defaultValue={user?.displayName}
+                  // defaultValue={user?.displayName}
                   {...register("instructorName", { required: true })}
                   placeholder="Instructor Name"
                   className="input input-bordered w-full"
@@ -92,7 +94,7 @@ const AddClass = () => {
                 </label>
                 <input
                   type="email"
-                  defaultValue={user?.email}
+                  // defaultValue={user?.email}
                   {...register("email", { required: true })}
                   placeholder="Instructor email"
                   className="input input-bordered w-full"
