@@ -55,6 +55,7 @@ const Classes = () => {
         .then((data) => {
           if (data.insertedId) {
             Swal.fire("Successfully Selected");
+            navigate("/dashboard/myclass");
           }
         });
     } else {
@@ -81,10 +82,22 @@ const Classes = () => {
               <div className="flex justify-between">
                 <div>
                   <h2 className="card-title">{classe.name}</h2>
-                  <p>Instructo: {classe.instructor}</p>
-                  <p>Student: {classe.students}</p>
-                  <p>Available seats: {classe.seatsAvailable}</p>
-                  <p>Price: {classe.price}</p>
+                  <div className="flex items-center gap-2">
+                    <h2 className="font-semibold">Instructo: </h2>
+                    <p> {classe.instructor}</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <h2 className="font-semibold">Student:</h2>
+                    <p>{classe.students}</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <h2 className="font-semibold">Available seats:</h2>
+                    <p>{classe.seatsAvailable}</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <h2 className="font-semibold">Price:</h2>
+                    <p>{classe.price}</p>
+                  </div>
                 </div>
                 <div className="flex items-end">
                   <div className="flex flex-col gap-2">
@@ -99,9 +112,9 @@ const Classes = () => {
                       Details
                     </button>
                     <button
-                      disabled={
-                        user?.role === "instructor" || user?.role === "admin"
-                      }
+                      // disabled={
+                      //   user?.role === "instructor" || user?.role === "admin"
+                      // }
                       onClick={() => handelSelectedItem(classe)}
                       className="btn bg-[#062d50] text-white hover:bg-[#2046e0]"
                     >

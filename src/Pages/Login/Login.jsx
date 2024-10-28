@@ -63,7 +63,7 @@ const Login = () => {
                 <p>Jihad@2</p>
               </div>
             </div>
-            <div className="text-xl my-5">
+            {/* <div className="text-xl my-5">
               <h4 className="font-bold">Instructor:</h4>
               <div className="flex ml-5 gap-2">
                 <h1 className="font-bold">Email:</h1>
@@ -73,7 +73,7 @@ const Login = () => {
                 <h1 className="font-bold">Password:</h1>
                 <p>Inst@2</p>
               </div>
-            </div>
+            </div> */}
             <div className="text-xl">
               <h4 className="font-bold">Student:</h4>
               <div className="flex ml-5 gap-2">
@@ -115,11 +115,11 @@ const Login = () => {
                   placeholder="password"
                   className="input input-bordered"
                 />
-                <label className="label">
+                {/* <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
-                </label>
+                </label> */}
               </div>
               <div className="form-control mt-6">
                 <input

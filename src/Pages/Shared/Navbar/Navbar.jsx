@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import useAdmin from "../../../Hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  // console.log(user);
+  const [isAdmin] = useAdmin();
 
   const handelLogOut = () => {
     logOut()
@@ -44,14 +47,37 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink
+        {isAdmin ? (
+          <>
+            <NavLink
+              to="/dashboard/admin"
+              className={({ isActive }) =>
+                isActive ? "text-red-600 font-bold" : "hover:text-red-300"
+              }
+            >
+              Dashboard
+            </NavLink>
+          </>
+        ) : (
+          <>
+            <NavLink
+              to="/dashboard/student"
+              className={({ isActive }) =>
+                isActive ? "text-red-600 font-bold" : "hover:text-red-300"
+              }
+            >
+              Dashboard
+            </NavLink>
+          </>
+        )}
+        {/* <NavLink
           to="/dashboard/dashboard-content"
           className={({ isActive }) =>
             isActive ? "text-red-600 font-bold" : "hover:text-red-300"
           }
         >
           Dashboard
-        </NavLink>
+        </NavLink> */}
       </li>
       {user ? (
         <>

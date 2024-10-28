@@ -7,6 +7,10 @@ const AddedByInstructor = () => {
   const [getClass, setGetClass] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedClass, setSelectedClass] = useState(null);
+  const [reload, setReload] = useState(false);
+
+  // Function to toggle reload state
+  const triggerReload = () => setReload((prev) => !prev);
 
   useEffect(() => {
     fetch("https://assignment-twelve-server-zeta.vercel.app/addedclass")
@@ -61,7 +65,7 @@ const AddedByInstructor = () => {
                 </div>
                 <div className="flex items-end">
                   <button
-                    className="btn btn-primary"
+                    className="btn bg-[#2046e0] hover:bg-[#062d50] text-white"
                     onClick={() => handleUpdateClick(item)}
                   >
                     Update
@@ -76,7 +80,9 @@ const AddedByInstructor = () => {
           </div>
         ))}
       </div>
-      {selectedClass && <UpdateModal classData={selectedClass} />}
+      {selectedClass && (
+        <UpdateModal classData={selectedClass} triggerReload={triggerReload} />
+      )}
     </div>
   );
 };

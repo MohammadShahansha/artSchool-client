@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="mt-20">
-      <footer className="md:flex md:justify-between p-10 bg-base-200 text-base-content">
+    <div className="mt-20 ">
+      <footer className="md:flex md:justify-between px-20 p-10 bg-base-200 text-base-content">
         <div className="flex flex-col items-center text-center text-2xl font-medium mb-3">
           <p className="my-auto">
             Arts & <br />
@@ -11,24 +11,30 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex flex-col text-center">
-          <span className="footer-title mt-4">Services</span>
+          <span className="font-semibold text-2xl mb-2">Services</span>
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>
           <a className="link link-hover">Marketing</a>
           <a className="link link-hover">Advertisement</a>
         </div>
         <div className="flex flex-col text-center mb-5">
-          <span className="footer-title mt-5">Company</span>
+          <span className="font-semibold text-2xl mb-2">Company</span>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
         </div>
         <div className="flex flex-col text-center">
-          <span className="footer-title mt-5">Legal</span>
+          <span className="font-semibold text-2xl mb-2">Legal</span>
           <a className="link link-hover">Terms of use</a>
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
+        </div>
+        <div className="flex flex-col text-center">
+          <span className="font-semibold text-2xl mb-2">Contact</span>
+          <a className="link link-hover">example@gmail.com</a>
+          <a className="link link-hover">+880 1740252020</a>
+          <a className="link link-hover">+880 1725925353</a>
         </div>
       </footer>
       <div className="px-10 py-4 border-t bg-base-200 text-base-content border-base-300">

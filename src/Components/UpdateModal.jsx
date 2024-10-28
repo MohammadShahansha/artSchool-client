@@ -1,12 +1,34 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import { Navigate } from "react-router-dom";
+import useClass from "../Hooks/useClass";
+import { useQuery } from "@tanstack/react-query";
 // import Swal from "sweetalert2";
 // import { Zoom } from "react-awesome-reveal";
 
-const UpdateClass = ({ classData }) => {
+const UpdateClass = ({ classData, triggerReload }) => {
+  // console.log(classId);
   const { user } = useContext(AuthContext);
-
+  // const [classData, setClassData] = useState({});
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/singleClass/${classId}`, { method: "GET" })
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         throw new Error(`Server Error: ${res.status}`);
+  //       }
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       setClassData(data);
+  //       // setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //     });
+  // }, []);
+  // console.log(classData);
   const {
     register,
     handleSubmit,
@@ -14,7 +36,6 @@ const UpdateClass = ({ classData }) => {
     formState: { errors },
   } = useForm();
 
-  // Update the form values when classData changes
   useEffect(() => {
     if (classData) {
       reset({
@@ -28,25 +49,9 @@ const UpdateClass = ({ classData }) => {
       });
     }
   }, [classData, reset, user]);
-  console.log(classData);
+
   const onSubmit = (data) => {
     console.log("Submitted Data:", data);
-
-    // fetch(`http://localhost:5000/updateClass/${classData._id}`, {
-    //   method: "PATCH",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     if (result.modifiedCount > 0) {
-    //       console.log("Class updated successfully:", result);
-    //       document.getElementById("my_modal_5").close();
-    //     }
-    //   });
-
     fetch(`http://localhost:5000/updateClass/${classData._id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -61,6 +66,10 @@ const UpdateClass = ({ classData }) => {
       })
       .then((result) => {
         console.log("Update result:", result);
+        reset();
+        Swal.fire("Successfully Selected");
+        document.getElementById("my_modal_5").close();
+        triggerReload();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -69,13 +78,6 @@ const UpdateClass = ({ classData }) => {
 
   return (
     <div>
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-      {/* <button
-        className="btn"
-        onClick={() => document.getElementById("my_modal_5").showModal()}
-      >
-        open modal
-      </button> */}
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg">Hello!</h3>

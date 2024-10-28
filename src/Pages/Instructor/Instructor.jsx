@@ -13,20 +13,23 @@ const Instructor = () => {
       });
   }, []);
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+    <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-5 md:mx-10">
       {instructors.map((instructor) => (
         <div key={instructor._id}>
           <div className="card card-compact bg-base-100 shadow-xl">
             <figure>
               <img
-                className="h-[300px]"
+                className="h-[250px] w-full"
                 src={instructor.instructorImage}
-                alt="Art Image"
+                alt="Instructor Image"
               />
             </figure>
             <div className="card-body">
               <h2 className="card-title">{instructor.instructor}</h2>
-              <p>Instructo Email: {instructor.email}</p>
+              <div className="flex items-center gap-2">
+                <h2 className="font-semibold">Instructo Email:</h2>
+                <p>{instructor.email}</p>
+              </div>
             </div>
           </div>
         </div>

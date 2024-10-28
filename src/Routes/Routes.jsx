@@ -18,6 +18,9 @@ import UpdateModal from "../Components/UpdateModal";
 import UpdateClass from "../Components/UpdateModal";
 import DashboardContent from "../Pages/Dashboard/DashboardContent/DashboardContent";
 import DetailClass from "../Pages/DetailClass/DetailClass";
+import Profile from "../Pages/Profile/Profile";
+import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
+import StudentDashboard from "../Pages/Dashboard/StudentDashboard/StudentDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -88,8 +91,20 @@ export const router = createBrowserRouter([
         element: <UpdateClass />,
       },
       {
-        path: "dashboard-content",
-        element: <DashboardContent></DashboardContent>,
+        path: "profile",
+        element: <Profile />,
+      },
+      // {
+      //   path: "dashboard-content",
+      //   element: <DashboardContent></DashboardContent>,
+      // },
+      {
+        path: "admin",
+        element: <AdminDashboard />,
+      },
+      {
+        path: "student",
+        element: <StudentDashboard />,
       },
     ],
   },

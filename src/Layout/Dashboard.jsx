@@ -49,6 +49,11 @@ const Dashboard = () => {
                 {/* <li><NavLink to="enrolled"><FaHome></FaHome> Admin Home</NavLink></li> */}
 
                 <li>
+                  <NavLink to="/dashboard/admin">
+                    <FaUsers></FaUsers> Dashboard
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink to="/dashboard/manageusers">
                     <FaUsers></FaUsers> Manage Users
                   </NavLink>
@@ -66,6 +71,11 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/addedinstructor">
                     <FaUtensils></FaUtensils> All Class
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/profile">
+                    <FcManager></FcManager> Profile
                   </NavLink>
                 </li>
               </>
@@ -90,11 +100,17 @@ const Dashboard = () => {
                     {/* <li><NavLink to="enrolled"><GiConfirmed></GiConfirmed> My Enrolled class</NavLink></li> */}
 
                     <li>
+                      <NavLink to="/dashboard/studen">
+                        <FaUtensils></FaUtensils> Dashboard
+                      </NavLink>
                       <NavLink to="/dashboard/myclass">
                         <FaShoppingCart></FaShoppingCart> My Selected Class
                         <span className="badge badge-secondary">
                           +{selectedClass?.length || 0}
                         </span>
+                      </NavLink>
+                      <NavLink to="/dashboard/profile">
+                        <FaUtensils></FaUtensils> Profile
                       </NavLink>
                     </li>
                   </>

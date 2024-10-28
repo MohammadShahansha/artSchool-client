@@ -31,9 +31,18 @@ const PopulerInstructor = () => {
               </figure>
               <div className="card-body">
                 <h2 className="card-title">{pi.name}</h2>
-                <p>Instructo: {pi.instructor}</p>
-                <p>Student: {pi.students}</p>
-                <p>Email: {pi.email}</p>
+                <div className="flex items-center gap-2">
+                  <h2 className="font-semibold">Instructo:</h2>
+                  <p>{pi.instructor}</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <h2 className="font-semibold">Student:</h2>
+                  <p> {pi.students}</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <h2 className="font-semibold">Email:</h2>
+                  <p>{pi.email}</p>
+                </div>
               </div>
             </div>
           </div>
