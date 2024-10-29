@@ -20,7 +20,7 @@ const Classes = () => {
       });
   }, []);
 
-  // console.log(classes)
+  // console.log(classes);
   const handelSelectedItem = (classe) => {
     const {
       email,

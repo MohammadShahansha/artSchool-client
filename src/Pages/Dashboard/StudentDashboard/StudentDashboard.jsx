@@ -1,9 +1,10 @@
 import React from "react";
+import Summary from "../AdminDashboard/Summary";
 
 const StudentDashboard = () => {
   return (
     <div>
-      <h2>Student Dashboard</h2>
+      <Summary />
     </div>
   );
 };

@@ -1,9 +1,11 @@
 import React from "react";
-
+import Summary from "./Summary";
+import RecentSelectedCourse from "./RecentSelectedCourse";
 const AdminDashboard = () => {
   return (
     <div>
-      <h2>admin dashboard</h2>
+      <Summary />
+      <RecentSelectedCourse />
     </div>
   );
 };

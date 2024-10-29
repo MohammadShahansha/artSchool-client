@@ -100,7 +100,7 @@ const Dashboard = () => {
                     {/* <li><NavLink to="enrolled"><GiConfirmed></GiConfirmed> My Enrolled class</NavLink></li> */}
 
                     <li>
-                      <NavLink to="/dashboard/studen">
+                      <NavLink to="/dashboard/student">
                         <FaUtensils></FaUtensils> Dashboard
                       </NavLink>
                       <NavLink to="/dashboard/myclass">
