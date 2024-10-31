@@ -78,11 +78,11 @@ const Login = () => {
               <h4 className="font-bold">Student:</h4>
               <div className="flex ml-5 gap-2">
                 <h1 className="font-bold">Email:</h1>
-                <p>student1@gmail.com</p>
+                <p>yeasin1@gmail.com</p>
               </div>
               <div className="flex ml-5 gap-2">
                 <h1 className="font-bold">Password:</h1>
-                <p>Student@2</p>
+                <p>Yeasin@2</p>
               </div>
             </div>
           </div>

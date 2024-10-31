@@ -52,10 +52,10 @@ const Profile = () => {
   };
 
   return (
-    <div className="mx-5">
-      <div className="md:flex  gap-5">
+    <div className="mx-5 ">
+      <div className="flex flex-col-reverse md:flex-row gap-10 ">
         <div className="flex-1">
-          <div className="text-5xl font-normal">
+          <div className="text-3xl md:text-5xl font-normal">
             <h2>I am {userInfo.displayName}</h2>
             <h2>Contact me with {userInfo.email}</h2>
           </div>
@@ -68,7 +68,7 @@ const Profile = () => {
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, displayName: e.target.value })
                 }
-                className="input input-bordered w-full"
+                className="input input-bordered w-[300px] md:w-full"
               />
             </div>
             <div className="mb-4">
@@ -81,7 +81,7 @@ const Profile = () => {
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, photoUrl: e.target.value })
                 }
-                className="input input-bordered w-full"
+                className="input input-bordered w-[300px] md:w-full"
               />
             </div>
             <button
@@ -92,11 +92,11 @@ const Profile = () => {
             </button>
           </form>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 mt-5 md:mt-0">
           <img
             src={userInfo.photoUrl}
             alt="User Image"
-            className="md:w-[400px] md:h-[400px] rounded-full"
+            className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full"
           />
         </div>
       </div>

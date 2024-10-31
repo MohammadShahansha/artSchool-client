@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useClass from "../../../Hooks/useClass";
+import { useNavigate } from "react-router-dom";
 // import './CheckoutForm.css';
 
 const CheckoutForm = ({ price, id }) => {
@@ -10,6 +11,7 @@ const CheckoutForm = ({ price, id }) => {
   const elements = useElements();
   const [cardError, setCardError] = useState("");
   const [selectedClass, refetch] = useClass();
+  const navigate = useNavigate();
 
   const [transectionId, setTransectionId] = useState("");
   const [paymentedClass, setPaymentedClass] = useState({});
@@ -57,50 +59,10 @@ const CheckoutForm = ({ price, id }) => {
     if (paymentIntent?.status === "succeeded") {
       const transactionId = paymentIntent.id;
       setTransectionId(transactionId);
-      // fetch(`http://localhost:5000/paymentedClass/${id}`, { method: "GET" })
-      //   .then((res) => {
-      //     if (!res.ok) {
-      //       throw new Error("Network response was not ok");
-      //     }
-      //     return res.json();
-      //   })
-      //   .then((data) => {
-      //     setPaymentedClass(data);
-      //     setLoading(false);
-      //   })
-      //   .catch((error) => {
-      //     console.error("Error fetching data:", error);
-      //     setLoading(false);
-      //   }); // Storing class data for potential use
-
-      // // Step 2: Save successfully admitted class to "My Admitted Class" collection in backend
-      // fetch("http://localhost:5000/admittedclasses", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({
-      //     ...paymentedClass,
-      //     transactionId,
-      //     userEmail: user?.email,
-      //   }),
-      // });
-
-      // fetch(
-      //   `https://assignment-twelve-server-zeta.vercel.app/selectedclass/${id}`,
-      //   {
-      //     method: "DELETE",
-      //   }
-      // )
-      //   .then((res) => res.json())
-      //   .then((data) => {
-      //     if (data.deletedCount > 0) {
-      //       refetch();
-      //       //   Swal.fire("Deleted!", "Your data has been deleted.", "success");
-      //     }
-      //   });
 
       try {
         const response = await fetch(
-          `http://localhost:5000/paymentedClass/${id}`,
+          `https://assignment-twelve-server-zeta.vercel.app/paymentedClass/${id}`,
           { method: "GET" }
         );
         if (!response.ok) throw new Error("Network response was not ok");
@@ -108,23 +70,30 @@ const CheckoutForm = ({ price, id }) => {
         setPaymentedClass(data);
         setLoading(false);
 
-        await fetch("http://localhost:5000/admittedclasses", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ...data,
-            transactionId,
-            userEmail: user?.email,
-          }),
-        });
+        await fetch(
+          "https://assignment-twelve-server-zeta.vercel.app/admittedclasses",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              ...data,
+              transactionId,
+              userEmail: user?.email,
+            }),
+          }
+        );
 
-        await fetch(`http://localhost:5000/selectedclass/${id}`, {
-          method: "DELETE",
-        })
+        await fetch(
+          `https://assignment-twelve-server-zeta.vercel.app/selectedclass/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
               refetch();
+              navigate("/dashboard/my-class");
             }
           });
       } catch (error) {

@@ -13,7 +13,7 @@ const UpdateClass = ({ classData, triggerReload }) => {
   const { user } = useContext(AuthContext);
   // const [classData, setClassData] = useState({});
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/singleClass/${classId}`, { method: "GET" })
+  //   fetch(`https://assignment-twelve-server-zeta.vercel.app/singleClass/${classId}`, { method: "GET" })
   //     .then((res) => {
   //       if (!res.ok) {
   //         throw new Error(`Server Error: ${res.status}`);
@@ -52,11 +52,14 @@ const UpdateClass = ({ classData, triggerReload }) => {
 
   const onSubmit = (data) => {
     console.log("Submitted Data:", data);
-    fetch(`http://localhost:5000/updateClass/${classData._id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://assignment-twelve-server-zeta.vercel.app/updateClass/${classData._id}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => {
         if (!res.ok) {
           // Log an error if the server response is not OK

@@ -5,24 +5,21 @@ import {
   FaShoppingCart,
   FaUsers,
   FaUtensils,
-  FaWallet,
 } from "react-icons/fa";
-import { GiConfirmed } from "react-icons/gi";
-import { FcManager } from "react-icons/fc";
 import { MdClass } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 import useClass from "../Hooks/useClass";
 import useAdmin from "../Hooks/useAdmin";
 import useInstructor from "../Hooks/useInstructor";
+import { MdDashboard } from "react-icons/md";
+import { MdPersonPin } from "react-icons/md";
+import { MdPerson } from "react-icons/md";
 
 const Dashboard = () => {
   const [selectedClass] = useClass();
-  //TODO--------------------------------------------------------
-  // const isAdmin = true;
-  // const isInstructor = false;
+
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
-  // console.log(isInstructor)
 
   return (
     <div>
@@ -40,17 +37,15 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+          <ul className="menu p-4 w-80 h-full bg-[#e4eaf0] text-[#4a4c4b]">
             {/* Sidebar content here */}
             <h2 className="text-2xl font-semibold">Arts & Craft School</h2>
 
             {isAdmin ? (
               <>
-                {/* <li><NavLink to="enrolled"><FaHome></FaHome> Admin Home</NavLink></li> */}
-
                 <li>
                   <NavLink to="/dashboard/admin">
-                    <FaUsers></FaUsers> Dashboard
+                    <MdDashboard /> Dashboard
                   </NavLink>
                 </li>
                 <li>
@@ -70,12 +65,17 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink to="/dashboard/addedinstructor">
-                    <FaUtensils></FaUtensils> All Class
+                    <MdClass /> All Class
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/admitted-class">
+                    <FaUtensils></FaUtensils>Admitted Class
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/dashboard/profile">
-                    <FcManager></FcManager> Profile
+                    <MdPersonPin /> Profile
                   </NavLink>
                 </li>
               </>
@@ -99,46 +99,42 @@ const Dashboard = () => {
                   <>
                     {/* <li><NavLink to="enrolled"><GiConfirmed></GiConfirmed> My Enrolled class</NavLink></li> */}
 
-                    <li>
+                    <li className="font-medium text-lg">
                       <NavLink to="/dashboard/student">
-                        <FaUtensils></FaUtensils> Dashboard
+                        <MdDashboard /> Dashboard
                       </NavLink>
-                      <NavLink to="/dashboard/myclass">
+                      <NavLink to="/dashboard/my-class">
+                        <MdClass /> My Class
+                      </NavLink>
+                      <NavLink to="/dashboard/my-selected-class">
                         <FaShoppingCart></FaShoppingCart> My Selected Class
                         <span className="badge badge-secondary">
                           +{selectedClass?.length || 0}
                         </span>
                       </NavLink>
-                      <NavLink to="/dashboard/profile">
-                        <FaUtensils></FaUtensils> Profile
+                      <NavLink to="/dashboard/profile" className="">
+                        <MdPersonPin /> Profile
                       </NavLink>
                     </li>
                   </>
                 )}
               </>
             )}
-            {/* <li><NavLink to="enrolled"><GiConfirmed></GiConfirmed> My Enrolled class</NavLink></li>
-                        <li><NavLink to="/payment"><FaWallet></FaWallet> Payment</NavLink></li>
-                        <li>
-                            <NavLink to="/dashboard/myclass"><FaShoppingCart></FaShoppingCart> My Selected Class
-                                <span className="badge badge-secondary">+{selectedClass?.length || 0}</span>
-                            </NavLink>
 
-                        </li> */}
-            <div className="divider"></div>
-            <li>
+            <div className="divider h-1"></div>
+            <li className="font-medium text-lg">
               <NavLink to="/">
                 <FaHome></FaHome> Home
               </NavLink>
             </li>
-            <li>
+            <li className="font-medium text-lg">
               <NavLink to="/classes">
                 <FaSchool></FaSchool> Classes
               </NavLink>
             </li>
-            <li>
+            <li className="font-medium text-lg">
               <NavLink to="/instructor">
-                <FcManager></FcManager> Instructor
+                <MdPerson /> Instructor
               </NavLink>
             </li>
           </ul>

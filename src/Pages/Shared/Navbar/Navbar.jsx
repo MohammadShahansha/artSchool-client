@@ -81,7 +81,7 @@ const Navbar = () => {
       </li>
       {user ? (
         <>
-          <button onClick={handelLogOut} className="btn btn-ghost">
+          <button onClick={handelLogOut} className="pr-2">
             Logout
           </button>
           <img className="rounded-full w-10 h-10" src={user.photoURL} alt="" />

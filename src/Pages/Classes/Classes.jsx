@@ -55,7 +55,7 @@ const Classes = () => {
         .then((data) => {
           if (data.insertedId) {
             Swal.fire("Successfully Selected");
-            navigate("/dashboard/myclass");
+            navigate("/dashboard/my-selected-class");
           }
         });
     } else {

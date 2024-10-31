@@ -21,6 +21,8 @@ import DetailClass from "../Pages/DetailClass/DetailClass";
 import Profile from "../Pages/Profile/Profile";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
 import StudentDashboard from "../Pages/Dashboard/StudentDashboard/StudentDashboard";
+import AdmittedClassPerStudent from "../Pages/Dashboard/AdmittedClass/AdmittedClassPerStudent";
+import AllAdmittedClass from "../Pages/Dashboard/AdmittedClass/AllAdmittedClass";
 
 export const router = createBrowserRouter([
   {
@@ -63,8 +65,16 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "myclass",
+        path: "my-selected-class",
         element: <MyClass></MyClass>,
+      },
+      {
+        path: "my-class",
+        element: <AdmittedClassPerStudent />,
+      },
+      {
+        path: "admitted-class",
+        element: <AllAdmittedClass />,
       },
       {
         path: "manageusers",

@@ -1,9 +1,10 @@
 import React from "react";
+import footeImg from "../../../assets/Home/footer.png";
 
 const Footer = () => {
   return (
-    <div className="mt-20 ">
-      <footer className="md:flex md:justify-between px-20 p-10 bg-base-200 text-base-content">
+    <div className="mt-20 text-[#4a4c4b]">
+      <footer className="md:flex md:justify-between px-20 p-10 bg-[#f4f6f8] text-[#4a4c4b]">
         <div className="flex flex-col items-center text-center text-2xl font-medium mb-3">
           <p className="my-auto">
             Arts & <br />
@@ -13,31 +14,31 @@ const Footer = () => {
         <div className="flex flex-col text-center">
           <span className="font-semibold text-2xl mb-2">Services</span>
           <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
+          <a className="link link-hover my-2">Design</a>
           <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <a className="link link-hover mt-2">Advertisement</a>
         </div>
         <div className="flex flex-col text-center mb-5">
           <span className="font-semibold text-2xl mb-2">Company</span>
           <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
+          <a className="link link-hover my-2">Contact</a>
           <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <a className="link link-hover mt-2">Press kit</a>
         </div>
         <div className="flex flex-col text-center">
           <span className="font-semibold text-2xl mb-2">Legal</span>
           <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
+          <a className="link link-hover my-2">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
         </div>
         <div className="flex flex-col text-center">
           <span className="font-semibold text-2xl mb-2">Contact</span>
           <a className="link link-hover">example@gmail.com</a>
-          <a className="link link-hover">+880 1740252020</a>
+          <a className="link link-hover my-2">+880 1740252020</a>
           <a className="link link-hover">+880 1725925353</a>
         </div>
       </footer>
-      <div className="px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+      <div className="px-10 py-4 border-t bg-[#f4f6f8] text-[#4a4c4b] border-base-300">
         <div className="md:place-self-center ">
           <div className="flex justify-center gap-3 text-7xl">
             <a>

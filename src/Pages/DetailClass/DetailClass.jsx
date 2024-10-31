@@ -53,8 +53,8 @@ const DetailClass = () => {
     }
   };
   return (
-    <div className="mt-5 md:mt-32 mx-5 md:mx-20">
-      <div className="card md:gap-10 items-center lg:card-side bg-base-100 w-full shadow-xl">
+    <div className="mt-5 md:mt-28 mx-5 md:mx-20 flex justify-center items-center">
+      <div className="md:flex bg-[#f4f6f8] border-2 border-[#e4eaf0] rounded-2xl md:gap-10 items-center lg:card-side w-full md:w-[1000px] ">
         <figure className="md:w-5/12">
           <img
             src={singleClass?.image}
@@ -63,9 +63,9 @@ const DetailClass = () => {
           />
         </figure>
 
-        <div className=" md:flex justify-between md:gap-5 w-full  p-5">
-          <div className="w-full">
-            <div className="flex items-center gap-2">
+        <div className=" md:flex justify-between items-center md:gap-5 w-full  p-5">
+          <div className="w-full text-lg">
+            <div className="flex items-center gap-2 ">
               <h2 className="font-semibold">Course:</h2>
               <p>{singleClass?.name}</p>
             </div>
@@ -77,11 +77,8 @@ const DetailClass = () => {
               <h2 className="font-semibold">Available Seat:</h2>
               <p>{singleClass?.seatsAvailable}</p>
             </div>
-            <marquee className="my-5 font-semibold text-2xl ">
-              <h2>to join please select &</h2>
-              <h2>pay immediately</h2>
-            </marquee>
-            <div>
+
+            <div className="md:mt-5">
               <button
                 // disabled={user?.role === "instructor" || user?.role === "admin"}
                 onClick={() => handelSelectedItem(singleClass)}
@@ -92,7 +89,7 @@ const DetailClass = () => {
             </div>
           </div>
           {/* <div class="border-l border-gray-300"></div> */}
-          <div className=" w-full">
+          <div className=" w-full text-lg">
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="font-semibold">Instructor Name:</h2>
@@ -101,6 +98,10 @@ const DetailClass = () => {
               <div className="flex items-center gap-2">
                 <h2 className="font-semibold">Email:</h2>
                 <p>{singleClass?.email}</p>
+              </div>
+              <div className="my-5 font-semibold text-2xl ">
+                <h2>to join please select &</h2>
+                <h2>pay immediately</h2>
               </div>
             </div>
           </div>

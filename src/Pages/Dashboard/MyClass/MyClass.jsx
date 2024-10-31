@@ -52,7 +52,7 @@ const MyClass = () => {
     });
   };
   return (
-    <div className="w-full">
+    <div className="">
       <div className="">
         <h2 className="text-3xl md:text-5xl text-center font-semibold my-5">
           My Selected Classes
@@ -62,15 +62,15 @@ const MyClass = () => {
           <h2>Total Price: {totalPrice}</h2>
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-[300px] md:w-[1000px] border-2 border-[#e4eaf0] rounded-2xl">
         <div className="w-full overflow-x-auto">
           <Zoom delay={1000} duration={1000}>
             {" "}
             <table className="table w-full overflow-x-auto">
               {/* head */}
-              <thead>
+              <thead className="bg-[#f4f6f8] border rounded-2xl">
                 <tr>
-                  <th>#</th>
+                  <th>No.</th>
                   <th>Image</th>
                   <th>name</th>
                   <th>Price</th>
@@ -82,7 +82,7 @@ const MyClass = () => {
                 {selectedClass.map((item, index) => (
                   <tr key={item._id}>
                     <th>{index + 1}</th>
-                    <td>
+                    <td className="w-[200px]">
                       <div className="flex items-center space-x-3">
                         <div className="avatar">
                           <Zoom delay={1000} duration={1000}>
@@ -97,9 +97,9 @@ const MyClass = () => {
                         </div>
                       </div>
                     </td>
-                    <td>{item.name}</td>
-                    <td>${item.price}</td>
-                    <td>
+                    <td className="w-[300px]">{item.name}</td>
+                    <td className="w-[150px]">${item.price}</td>
+                    <td className="flex flex-row">
                       <button
                         onClick={() => handelDelete(item)}
                         className="btn bg-red-600 btn-sm text-white mr-5"

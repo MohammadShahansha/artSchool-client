@@ -13,7 +13,7 @@ const AboutMeForm = () => {
 
   const onSubmit = (data) => {
     console.log("Submitted Data:", data);
-    // fetch(`http://localhost:5000/updateClass/${classData._id}`, {
+    // fetch(`https://assignment-twelve-server-zeta.vercel.app/updateClass/${classData._id}`, {
     //   method: "PATCH",
     //   headers: { "Content-Type": "application/json" },
     //   body: JSON.stringify(data),
