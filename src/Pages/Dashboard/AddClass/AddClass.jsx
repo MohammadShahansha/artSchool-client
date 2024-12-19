@@ -44,15 +44,17 @@ const AddClass = () => {
   return (
     <div className="w-full md:ms-10 rounded-md">
       <Zoom delay={1000} duration={1000}>
-        <div className=" bg-base-200 px-10 rounded-md md:my-10">
-          <h2 className="text-3xl md:text-4xl font-semibold text-center mb-5">
+        <div className=" bg-[#f4f6f8] min-h-screen px-10 rounded-md md:my-5">
+          <h2 className="text-3xl md:text-4xl font-semibold text-center py-5 text-[#4a4c4b] ">
             Add a Class
           </h2>
-          <form onSubmit={handleSubmit(onSubmit)} className="mb-5">
+          <form onSubmit={handleSubmit(onSubmit)} className="mb-5 ">
             <div className="md:flex gap-5">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Class Name</span>
+                  <span className="label-text font-semibold text-[#4a4c4b] text-base">
+                    Class Name
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -63,7 +65,9 @@ const AddClass = () => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Class Image</span>
+                  <span className="label-text font-semibold text-[#4a4c4b] text-base">
+                    Class Image
+                  </span>
                 </label>
                 {/* <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full " /> */}
 
@@ -75,10 +79,12 @@ const AddClass = () => {
                 />
               </div>
             </div>
-            <div className="md:flex gap-5">
+            <div className="md:flex gap-5 my-0 md:my-3">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Instructor Name</span>
+                  <span className="label-text font-semibold text-[#4a4c4b] text-base">
+                    Instructor Name
+                  </span>
                 </label>
                 <input
                   type="text"
@@ -90,7 +96,9 @@ const AddClass = () => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Instructor Email</span>
+                  <span className="label-text font-semibold text-[#4a4c4b] text-base">
+                    Instructor Email
+                  </span>
                 </label>
                 <input
                   type="email"
@@ -104,7 +112,9 @@ const AddClass = () => {
             <div className="md:flex gap-5">
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Available Seats</span>
+                  <span className="label-text font-semibold text-[#4a4c4b] text-base">
+                    Available Seats
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -115,7 +125,9 @@ const AddClass = () => {
               </div>
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text">Price</span>
+                  <span className="label-text font-semibold text-[#4a4c4b] text-base">
+                    Price
+                  </span>
                 </label>
                 <input
                   type="number"
@@ -125,9 +137,11 @@ const AddClass = () => {
                 />
               </div>
             </div>
-            <div className="form-control md:w-1/2">
+            <div className="form-control md:w-1/2 my-0 md:my-3">
               <label className="label">
-                <span className="label-text">Status</span>
+                <span className="label-text font-semibold text-[#4a4c4b] text-base">
+                  Status
+                </span>
               </label>
               <input
                 type="text"
@@ -139,9 +153,9 @@ const AddClass = () => {
             </div>
             <div className="text-center my-5 pb-5">
               <input
-                className="btn btn-primary text-center"
+                className="btn bg-[#2046e0] hover:bg-[#062d50] text-white"
                 type="submit"
-                value="Add Class"
+                value="Add a Class"
               />
             </div>
           </form>

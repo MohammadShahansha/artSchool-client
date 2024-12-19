@@ -77,63 +77,67 @@ const ManageUsers = () => {
   };
 
   return (
-    <div className="w-full">
-      <h2 className="text-3xl font-semibold my-7 flex justify-center">
-        Total Users: {users.length}
-      </h2>
-      <div className="overflow-x-auto">
-        <Zoom delay={1000} duration={1000}>
-          {" "}
-          <table className="table">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Action</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((user, index) => (
-                <tr key={user._id}>
-                  <td>{index + 1}</td>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>
-                    {user.role === "admin" ? (
-                      "admin"
-                    ) : (
-                      <>
-                        {user.role === "instructor" ? "instructor" : "student"}
-                      </>
-                    )}
-                  </td>
-                  <td>
-                    <button
-                      disabled={user.role === "instructor"}
-                      onClick={() => handelMakeInstructor(user)}
-                      className="btn btn-primary btn-sm text-white"
-                    >
-                      Make Instructor
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      disabled={user.role === "admin"}
-                      onClick={() => handelMakeAdmin(user)}
-                      className="btn btn-primary btn-sm text-white"
-                    >
-                      Make Admin
-                    </button>
-                  </td>
+    <div className="w-full flex justify-center">
+      <div>
+        <h2 className="text-3xl font-semibold my-7 flex justify-center">
+          Total Users: {users.length}
+        </h2>
+        <div className="overflow-x-auto w-[300px] md:w-full ">
+          <Zoom delay={1000} duration={1000}>
+            {" "}
+            <table className="table">
+              {/* head */}
+              <thead className="bg-[#f4f6f8] border-2 border-[#e4eaf0] rounded-2xl">
+                <tr>
+                  <th>No.</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Action</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </Zoom>
+              </thead>
+              <tbody>
+                {users.map((user, index) => (
+                  <tr key={user._id}>
+                    <td>{index + 1}</td>
+                    <td>{user.name}</td>
+                    <td>{user.email}</td>
+                    <td>
+                      {user.role === "admin" ? (
+                        "admin"
+                      ) : (
+                        <>
+                          {user.role === "instructor"
+                            ? "instructor"
+                            : "student"}
+                        </>
+                      )}
+                    </td>
+                    <td>
+                      <button
+                        disabled={user.role === "instructor"}
+                        onClick={() => handelMakeInstructor(user)}
+                        className="btn btn-primary btn-sm text-white"
+                      >
+                        Make Instructor
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        disabled={user.role === "admin"}
+                        onClick={() => handelMakeAdmin(user)}
+                        className="btn btn-primary btn-sm text-white"
+                      >
+                        Make Admin
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </Zoom>
+        </div>
       </div>
     </div>
   );

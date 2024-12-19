@@ -28,7 +28,7 @@ const AddedByInstructor = () => {
   };
 
   return (
-    <div className="px-5">
+    <div className="px-5 text-[#4a4c4b]">
       <h2 className="text-3xl md:text-4xl text-center font-semibold my-5">
         All Classes
       </h2>

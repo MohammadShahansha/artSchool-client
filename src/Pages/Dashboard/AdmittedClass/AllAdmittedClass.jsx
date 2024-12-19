@@ -26,10 +26,10 @@ const AllAdmittedClass = () => {
       <h2 className="text-2xl font-semibold pb-3 text-[#4a4c4b] ">
         Admitted Courses
       </h2>
-      <div className="overflow-x-auto h-[400px] sm:[300px] md:w-[1000px] lg:[1200px]">
+      <div className="overflow-x-auto w-[300px] md:w-[1000px] lg:[1200px]">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="border-2 bg-[#f4f6f8] border-[#e4eaf0] rounded-2xl">
             <tr className="text-lg font-normal text-[#4a4c4b] ">
               <th>Course</th>
               <th>Instructor</th>

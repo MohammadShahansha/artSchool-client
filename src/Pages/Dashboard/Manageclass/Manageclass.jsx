@@ -80,8 +80,10 @@ const Manageclass = () => {
     }
   };
   return (
-    <div>
-      <h2 className="text-5xl text-center font-semibold my-5">Manage Class</h2>
+    <div className="text-[#4a4c4b]">
+      <h2 className="text-3xl md:text-4xl text-center font-semibold text-[#4a4c4b] my-5">
+        Manage Class
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 p-2">
         {managclass.map((item) => (
           <div key={item._id} className="">

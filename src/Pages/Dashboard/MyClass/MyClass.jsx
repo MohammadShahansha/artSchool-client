@@ -52,9 +52,9 @@ const MyClass = () => {
     });
   };
   return (
-    <div className="">
-      <div className="">
-        <h2 className="text-3xl md:text-5xl text-center font-semibold my-5">
+    <div>
+      <div>
+        <h2 className="text-3xl md:text-4xl text-center font-semibold my-5">
           My Selected Classes
         </h2>
         <div className="flex-col mx-auto text-center md:flex-row justify-center md:justify-evenly text-2xl font-semibold mb-5">

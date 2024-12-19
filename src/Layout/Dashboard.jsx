@@ -14,6 +14,8 @@ import useInstructor from "../Hooks/useInstructor";
 import { MdDashboard } from "react-icons/md";
 import { MdPersonPin } from "react-icons/md";
 import { MdPerson } from "react-icons/md";
+import { MdManageSearch } from "react-icons/md";
+import { GiConfirmed } from "react-icons/gi";
 
 const Dashboard = () => {
   const [selectedClass] = useClass();
@@ -42,7 +44,7 @@ const Dashboard = () => {
             <h2 className="text-2xl font-semibold">Arts & Craft School</h2>
 
             {isAdmin ? (
-              <>
+              <div className="font-medium text-lg">
                 <li>
                   <NavLink to="/dashboard/admin">
                     <MdDashboard /> Dashboard
@@ -60,7 +62,7 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink to="/dashboard/manageclass">
-                    <MdClass></MdClass> Manage Classes
+                    <MdManageSearch /> Manage Classes
                   </NavLink>
                 </li>
                 <li>
@@ -70,7 +72,7 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink to="/dashboard/admitted-class">
-                    <FaUtensils></FaUtensils>Admitted Class
+                    <GiConfirmed /> Admitted Class
                   </NavLink>
                 </li>
                 <li>
@@ -78,7 +80,7 @@ const Dashboard = () => {
                     <MdPersonPin /> Profile
                   </NavLink>
                 </li>
-              </>
+              </div>
             ) : (
               <>
                 {isInstructor ? (
