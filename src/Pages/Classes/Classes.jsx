@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Classes = () => {
   const { user } = useContext(AuthContext);
@@ -21,48 +20,48 @@ const Classes = () => {
   }, []);
 
   // console.log(classes);
-  const handelSelectedItem = (classe) => {
-    const {
-      email,
-      image,
-      instructor,
-      name,
-      price,
-      seatsAvailable,
-      students,
-      _id,
-    } = classe;
-    if (user && user.email) {
-      // console.log(classe)
-      const selectedItem = {
-        selectedItemId: _id,
-        image,
-        instructor,
-        name,
-        price,
-        seatsAvailable,
-        students,
-        email: user.email,
-      };
-      fetch("https://assignment-twelve-server-zeta.vercel.app/selectedclass", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(selectedItem),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.insertedId) {
-            Swal.fire("Successfully Selected");
-            navigate("/dashboard/my-selected-class");
-          }
-        });
-    } else {
-      Swal.fire("Please Login to select!!");
-      navigate("/login", { state: { from: location } });
-    }
-  };
+  // const handelSelectedItem = (classe) => {
+  //   const {
+  //     email,
+  //     image,
+  //     instructor,
+  //     name,
+  //     price,
+  //     seatsAvailable,
+  //     students,
+  //     _id,
+  //   } = classe;
+  //   if (user && user.email) {
+  //     // console.log(classe)
+  //     const selectedItem = {
+  //       selectedItemId: _id,
+  //       image,
+  //       instructor,
+  //       name,
+  //       price,
+  //       seatsAvailable,
+  //       students,
+  //       email: user.email,
+  //     };
+  //     fetch("https://assignment-twelve-server-zeta.vercel.app/selectedclass", {
+  //       method: "POST",
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //       body: JSON.stringify(selectedItem),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         if (data.insertedId) {
+  //           Swal.fire("Successfully Selected");
+  //           navigate("/dashboard/my-selected-class");
+  //         }
+  //       });
+  //   } else {
+  //     Swal.fire("Please Login to select!!");
+  //     navigate("/login", { state: { from: location } });
+  //   }
+  // };
   const handleDetails = (selectedClass) => {
     navigate("/detailsClass", { state: { singleClass: selectedClass } });
   };
@@ -111,7 +110,7 @@ const Classes = () => {
                     >
                       Details
                     </button>
-                    <button
+                    {/* <button
                       // disabled={
                       //   user?.role === "instructor" || user?.role === "admin"
                       // }
@@ -119,7 +118,7 @@ const Classes = () => {
                       className="btn bg-[#062d50] text-white hover:bg-[#2046e0]"
                     >
                       Select
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>

@@ -13,7 +13,7 @@ const WhyWe = () => {
           Why Choose Us
         </h2>
         <div>
-          <h1 className="text-3xl font-bold text-black">Discover Us</h1>
+          <h1 className="text-2xl font-bold text-black">Discover Us</h1>
           <p className="text-lg font-normal text-slate-400 my-2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ut
             delectus itaque optio accusamus est dolores incidunt non aspernatur
@@ -21,26 +21,26 @@ const WhyWe = () => {
           </p>
           <div>
             <div className="flex items-center gap-2">
-              <IoArrowRedoSharp className="text-2xl" />
-              <h3 className="font-semibold text-2xl text-black">
+              <IoArrowRedoSharp className="text-xl" />
+              <h3 className="font-semibold text-xl text-black">
                 Experienced and Passionate Instructors
               </h3>
             </div>
             <div className="flex items-center gap-2">
-              <IoArrowRedoSharp className="text-2xl" />
-              <h3 className="font-semibold text-2xl text-black">
+              <IoArrowRedoSharp className="text-xl" />
+              <h3 className="font-semibold text-xl text-black">
                 Comprehensive and Innovative Programs
               </h3>
             </div>
             <div className="flex items-center gap-2">
-              <IoArrowRedoSharp className="text-2xl" />
-              <h3 className="font-semibold text-2xl text-black">
+              <IoArrowRedoSharp className="text-xl" />
+              <h3 className="font-semibold text-xl text-black">
                 State-of-the-Art Facilities & Resources
               </h3>
             </div>
             <div className="flex items-center gap-2">
-              <IoArrowRedoSharp className="text-2xl" />
-              <h3 className="font-semibold text-2xl text-black">
+              <IoArrowRedoSharp className="text-xl" />
+              <h3 className="font-semibold text-xl text-black">
                 Hands-On Learning Experience
               </h3>
             </div>

@@ -44,7 +44,7 @@ const DetailClass = () => {
         .then((data) => {
           if (data.insertedId) {
             Swal.fire("Successfully Selected");
-            navigate("/dashboard/myclass");
+            navigate("/dashboard/my-selected-class");
           }
         });
     } else {
@@ -53,43 +53,56 @@ const DetailClass = () => {
     }
   };
   return (
-    <div className="mt-5 md:mt-28 mx-5 md:mx-20 flex justify-center items-center">
-      <div className="md:flex bg-[#f4f6f8] border-2 border-[#e4eaf0] rounded-2xl md:gap-10 items-center lg:card-side w-full md:w-[1000px] ">
-        <figure className="md:w-5/12">
-          <img
-            src={singleClass?.image}
-            alt="Album"
-            className="md:w-full md:h-[300px]"
-          />
-        </figure>
-
-        <div className=" md:flex justify-between items-center md:gap-5 w-full  p-5">
-          <div className="w-full text-lg">
-            <div className="flex items-center gap-2 ">
-              <h2 className="font-semibold">Course:</h2>
-              <p>{singleClass?.name}</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <h2 className="font-semibold">Course Price:</h2>
-              <p>{singleClass?.price}</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <h2 className="font-semibold">Available Seat:</h2>
-              <p>{singleClass?.seatsAvailable}</p>
-            </div>
-
-            <div className="md:mt-5">
-              <button
-                // disabled={user?.role === "instructor" || user?.role === "admin"}
-                onClick={() => handelSelectedItem(singleClass)}
-                className="btn bg-[#2046e0] text-white hover:bg-[#062d50]"
-              >
-                Select
-              </button>
-            </div>
+    <div className="mt-5 md:mt-16">
+      <div className="my-5 font-semibold text-2xl text-center">
+        <h2>To Join Courses Please Select &</h2>
+        <h2>Pay Immediately</h2>
+      </div>
+      <div className=" mx-5 md:mx-20 flex justify-center items-center">
+        <div className="md:flex gap-32 items-center bg-[#f4f6f8] border-2 border-[#e4eaf0] rounded-2xl lg:card-side w-full md:w-[1000px] md:p-14 ">
+          <div className="md:w-5/12">
+            <img
+              src={singleClass?.image}
+              alt="Album"
+              className="md:w-[400px] md:h-[300px] rounded-sm"
+            />
           </div>
-          {/* <div class="border-l border-gray-300"></div> */}
-          <div className=" w-full text-lg">
+
+          <div className=" ">
+            <div className="w-full text-lg">
+              <div className="flex items-center gap-2 ">
+                <h2 className="font-semibold">Course:</h2>
+                <p>{singleClass?.name}</p>
+              </div>
+              <div className="flex items-center gap-2 my-2">
+                <h2 className="font-semibold">Course Price:</h2>
+                <p>{singleClass?.price}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <h2 className="font-semibold">Available Seat:</h2>
+                <p>{singleClass?.seatsAvailable}</p>
+              </div>
+              <div className="flex items-center gap-2 my-2">
+                <h2 className="font-semibold">Instructor Name:</h2>
+                <p>{singleClass?.instructor}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <h2 className="font-semibold">Email:</h2>
+                <p>{singleClass?.email}</p>
+              </div>
+
+              <div className="md:mt-5">
+                <button
+                  // disabled={user?.role === "instructor" || user?.role === "admin"}
+                  onClick={() => handelSelectedItem(singleClass)}
+                  className="btn bg-[#2046e0] text-white hover:bg-[#062d50]"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+
+            {/* <div className=" w-full text-lg">
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="font-semibold">Instructor Name:</h2>
@@ -99,11 +112,8 @@ const DetailClass = () => {
                 <h2 className="font-semibold">Email:</h2>
                 <p>{singleClass?.email}</p>
               </div>
-              <div className="my-5 font-semibold text-2xl ">
-                <h2>to join please select &</h2>
-                <h2>pay immediately</h2>
-              </div>
             </div>
+          </div> */}
           </div>
         </div>
       </div>
